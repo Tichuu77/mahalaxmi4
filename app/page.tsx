@@ -4,6 +4,8 @@ import { AboutSection } from "@/components/about-section"
 import { AmenitiesSection } from "@/components/amenities-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { GallerySection } from "@/components/gallery-section"
+import { WhyChooseUsSection } from "@/components/why-choose-us-section"
+import { UserGuideSection } from "@/components/user-guide-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { FAQSection } from "@/components/faq-section"
 import { ContactSection } from "@/components/contact-section"
@@ -18,6 +20,8 @@ export default function Home() {
       <AmenitiesSection />
       <ProjectsSection />
       <GallerySection />
+      <WhyChooseUsSection />
+      <UserGuideSection />
       <TestimonialsSection />
       <FAQSection />
       <ContactSection />
