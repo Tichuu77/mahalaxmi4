@@ -1,82 +1,276 @@
 "use client"
 
-import { useState } from "react"
-import { X } from "lucide-react"
+import { useEffect, useState, useRef } from "react"
+import { X, ChevronLeft, ChevronRight } from "lucide-react"
 
 const galleryItems = [
-  {
-    id: 1,
-    src: "/luxury-details-close-up.jpg",
-    alt: "Luxury Details",
-  },
-  {
-    id: 2,
-    src: "/premium-materials-texture.jpg",
-    alt: "Premium Materials",
-  },
-  {
-    id: 3,
-    src: "/elegant-lighting-design.jpg",
-    alt: "Elegant Lighting",
-  },
-  {
-    id: 4,
-    src: "/modern-furniture-arrangement.jpg",
-    alt: "Modern Furniture",
-  },
-  {
-    id: 5,
-    src: "/architectural-details.jpg",
-    alt: "Architecture",
-  },
-  {
-    id: 6,
-    src: "/luxury-ambiance-setting.jpg",
-    alt: "Ambiance",
-  },
+  { id: 1, src: "/gallery1.jpg", alt: "Morning View", category: "exterior" },
+  { id: 2, src: "/gallery2.jpg", alt: "Well Maintained Square", category: "amenities" },
+  { id: 3, src: "/gallery3.jpg", alt: "Good Entrance", category: "exterior" },
+  { id: 4, src: "/gallery4.jpg", alt: "Tree covered", category: "landscape" },
+  { id: 5, src: "/gallery5.jpg", alt: "Night View", category: "exterior" },
+  { id: 6, src: "/gallery6.jpg", alt: "Cozy Living Space", category: "interior" },
+  { id: 7, src: "/gallery7.jpg", alt: "Designer Interiors", category: "interior" },
+  { id: 8, src: "/gallery8.jpg", alt: "Premium Amenities", category: "amenities" },
+  { id: 9, src: "/gallery9.jpg", alt: "Swimming Pool", category: "amenities" },
+  { id: 10, src: "/gallery10.jpg", alt: "Evening View", category: "exterior" },
+  { id: 11, src: "/gallery11.jpg", alt: "Playground", category: "amenities" },
+  { id: 12, src: "/gallery12.jpg", alt: "Top View", category: "exterior" },
 ]
 
 export function GallerySection() {
   const [selectedId, setSelectedId] = useState<number | null>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const sliderRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    const section = document.getElementById("gallery")
+    if (section) observer.observe(section)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedId !== null) {
+        const currentIndex = galleryItems.findIndex(item => item.id === selectedId)
+        if (e.key === "ArrowRight") {
+          const newIndex = currentIndex === galleryItems.length - 1 ? 0 : currentIndex + 1
+          setSelectedId(galleryItems[newIndex].id)
+        }
+        if (e.key === "ArrowLeft") {
+          const newIndex = currentIndex === 0 ? galleryItems.length - 1 : currentIndex - 1
+          setSelectedId(galleryItems[newIndex].id)
+        }
+        if (e.key === "Escape") setSelectedId(null)
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [selectedId])
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % galleryItems.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + galleryItems.length) % galleryItems.length)
+  }
+
+  const navigateModalImage = (direction: 'prev' | 'next') => {
+    if (selectedId === null) return
+    const currentIndex = galleryItems.findIndex(item => item.id === selectedId)
+    let newIndex
+    if (direction === 'prev') {
+      newIndex = currentIndex === 0 ? galleryItems.length - 1 : currentIndex - 1
+    } else {
+      newIndex = currentIndex === galleryItems.length - 1 ? 0 : currentIndex + 1
+    }
+    setSelectedId(galleryItems[newIndex].id)
+  }
 
   return (
-    <section className="py-20 lg:py-32 bg-black relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span
-            style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-            className="text-amber-600 font-semibold text-sm uppercase tracking-wider"
-          >
+    <section id="gallery" className="py-12 md:py-20 lg:py-32 bg-black relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-40 right-20 w-96 h-96 bg-amber-900/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "0.5s" }}></div>
+        <div className="absolute bottom-40 left-20 w-96 h-96 bg-amber-700/15 rounded-full blur-3xl animate-pulse"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className={`text-center mb-8 md:mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <span className="text-amber-600 font-semibold text-xs md:text-sm uppercase tracking-wider mb-2 block">
             Gallery
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mt-4 text-balance">Visual Inspiration</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
+            Visual{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
+              Inspiration
+            </span>
+          </h2>
+          <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-amber-600 to-amber-400 mx-auto"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-          {galleryItems.map((item, index) => (
+        {/* Mobile Slider */}
+        <div className="md:hidden mb-8">
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl shadow-2xl">
+              <div
+                ref={sliderRef}
+                className="flex transition-transform duration-500 ease-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {galleryItems.map((item) => (
+                  <div key={item.id} className="min-w-full relative group">
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="w-full h-72 object-cover"
+                      onClick={() => setSelectedId(item.id)}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-4">
+                      <div className="text-white">
+                        <span className="text-amber-400 text-xs uppercase tracking-wider block mb-1">{item.category}</span>
+                        <p className="font-bold text-lg mb-1">{item.alt}</p>
+                        <p className="text-xs text-white/70">Tap to view full size</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Slider Controls */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-amber-600/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-amber-600 active:scale-95 transition-all z-10"
+            >
+              <ChevronLeft className="w-5 h-5 text-white" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-amber-600/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-amber-600 active:scale-95 transition-all z-10"
+            >
+              <ChevronRight className="w-5 h-5 text-white" />
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-4">
+              {galleryItems.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    currentSlide === index ? "w-8 bg-amber-600" : "w-2 bg-white/30"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Complex Masonry Layout */}
+        <div className="hidden md:grid grid-cols-12 gap-4 lg:gap-6 auto-rows-[180px]">
+          {/* Large feature image */}
+          <div
+            className="col-span-6 row-span-2 group cursor-pointer relative rounded-2xl overflow-hidden"
+            onClick={() => setSelectedId(galleryItems[0].id)}
+          >
+            <img
+              src={galleryItems[0].src}
+              alt={galleryItems[0].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div className="absolute bottom-6 left-6 right-6">
+              <span className="text-amber-400 text-xs uppercase tracking-wider block mb-2">{galleryItems[0].category}</span>
+              <p className="text-white font-bold text-xl drop-shadow-lg">{galleryItems[0].alt}</p>
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="w-16 h-16 bg-amber-600/80 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Vertical image */}
+          <div
+            className="col-span-3 row-span-2 group cursor-pointer relative rounded-2xl overflow-hidden"
+            onClick={() => setSelectedId(galleryItems[1].id)}
+          >
+            <img
+              src={galleryItems[1].src}
+              alt={galleryItems[1].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div className="absolute bottom-4 left-4 right-4">
+              <span className="text-amber-400 text-xs uppercase tracking-wider block mb-1">{galleryItems[1].category}</span>
+              <p className="text-white font-semibold text-sm drop-shadow-lg">{galleryItems[1].alt}</p>
+            </div>
+          </div>
+
+          {/* Square images */}
+          <div
+            className="col-span-3 row-span-1 group cursor-pointer relative rounded-2xl overflow-hidden"
+            onClick={() => setSelectedId(galleryItems[2].id)}
+          >
+            <img
+              src={galleryItems[2].src}
+              alt={galleryItems[2].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+            <div className="absolute bottom-3 left-3">
+              <p className="text-white font-semibold text-xs drop-shadow-lg">{galleryItems[2].alt}</p>
+            </div>
+          </div>
+
+          <div
+            className="col-span-3 row-span-1 group cursor-pointer relative rounded-2xl overflow-hidden"
+            onClick={() => setSelectedId(galleryItems[3].id)}
+          >
+            <img
+              src={galleryItems[3].src}
+              alt={galleryItems[3].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+            <div className="absolute bottom-3 left-3">
+              <p className="text-white font-semibold text-xs drop-shadow-lg">{galleryItems[3].alt}</p>
+            </div>
+          </div>
+
+          {/* Wide image */}
+          <div
+            className="col-span-6 row-span-1 group cursor-pointer relative rounded-2xl overflow-hidden"
+            onClick={() => setSelectedId(galleryItems[4].id)}
+          >
+            <img
+              src={galleryItems[4].src}
+              alt={galleryItems[4].alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+            <div className="absolute bottom-4 left-4">
+              <span className="text-amber-400 text-xs uppercase tracking-wider block mb-1">{galleryItems[4].category}</span>
+              <p className="text-white font-semibold text-base drop-shadow-lg">{galleryItems[4].alt}</p>
+            </div>
+          </div>
+
+          {/* More square images */}
+          {galleryItems.slice(5, 12).map((item) => (
             <div
               key={item.id}
-              className="group cursor-pointer relative h-64 rounded-lg overflow-hidden scroll-fade"
+              className="col-span-3 row-span-1 group cursor-pointer relative rounded-2xl overflow-hidden"
               onClick={() => setSelectedId(item.id)}
-              style={{ animationDelay: `${index * 100}ms` }}
             >
               <img
-                src={item.src || "/placeholder.svg"}
+                src={item.src}
                 alt={item.alt}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="w-12 h-12 border-2 border-white rounded-full flex items-center justify-center">
-                  <div
-                    className="w-0 h-0 border-l-8 border-r-0 border-t-5 border-b-5 border-l-white border-t-transparent border-b-transparent ml-1"
-                    style={{
-                      borderLeft: "8px solid white",
-                      borderTop: "5px solid transparent",
-                      borderBottom: "5px solid transparent",
-                    }}
-                  />
-                </div>
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+              <div className="absolute bottom-3 left-3">
+                <p className="text-white font-semibold text-xs drop-shadow-lg">{item.alt}</p>
               </div>
             </div>
           ))}
@@ -86,15 +280,33 @@ export function GallerySection() {
       {/* Lightbox Modal */}
       {selectedId !== null && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={() => setSelectedId(null)}
         >
-          <div className="relative max-w-4xl w-full h-[70vh]" onClick={(e) => e.stopPropagation()}>
+          <div className="relative max-w-5xl w-full h-[80vh]" onClick={(e) => e.stopPropagation()}>
             <img
-              src={galleryItems.find((item) => item.id === selectedId)?.src || "/placeholder.svg"}
+              src={galleryItems.find((item) => item.id === selectedId)?.src}
               alt="Gallery"
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain rounded-lg"
             />
+            
+            {/* Navigation arrows */}
+            <button
+              onClick={(e) => { e.stopPropagation(); navigateModalImage('prev') }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-amber-600/80 hover:bg-amber-600 rounded-full transition-colors backdrop-blur-sm"
+              aria-label="Previous"
+            >
+              <ChevronLeft size={24} className="text-white" />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); navigateModalImage('next') }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-amber-600/80 hover:bg-amber-600 rounded-full transition-colors backdrop-blur-sm"
+              aria-label="Next"
+            >
+              <ChevronRight size={24} className="text-white" />
+            </button>
+
+            {/* Close button */}
             <button
               onClick={() => setSelectedId(null)}
               className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
@@ -102,6 +314,14 @@ export function GallerySection() {
             >
               <X size={24} className="text-white" />
             </button>
+
+            {/* Image info */}
+            <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md rounded-lg p-4">
+              <p className="text-white font-semibold">{galleryItems.find((item) => item.id === selectedId)?.alt}</p>
+              <span className="text-amber-400 text-sm uppercase tracking-wider">
+                {galleryItems.find((item) => item.id === selectedId)?.category}
+              </span>
+            </div>
           </div>
         </div>
       )}

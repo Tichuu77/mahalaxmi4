@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import Link from "next/link"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -10,22 +11,25 @@ export function Navigation() {
     { href: "#about", label: "About" },
     { href: "#amenities", label: "Amenities" },
     { href: "#projects", label: "Projects" },
+    {label : "Gallery", href : "#gallery"},
+    { label: "User Guide", href: "#user-guide" },
+    { label: "News", href: "#news" },
     { href: "#testimonials", label: "Testimonials" },
     { href: "#contact", label: "Contact" },
   ]
 
   return (
-    <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-md z-50 border-b border-amber-900/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className="fixed top-0 w-full bg-white backdrop-blur-md z-50 border-b border-amber-900/20">
+      <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center gap-2 cursor-pointer">
-            <div className="w-8 h-8 bg-gradient-to-br from-amber-700 to-amber-900 rounded"></div>
+            <img src="/Mahalaxmi Infra new Logo.png" alt="Logo" className=" w-20 h-20" />
             <span
               style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-              className="font-bold text-white text-xl"
+              className="font-bold text-amber-600 text-xl"
             >
-              Premium
+             Mahalaxmi Developers
             </span>
           </div>
 
@@ -35,7 +39,7 @@ export function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-white/80 hover:text-amber-500 transition-colors text-sm font-medium"
+                className="text-amber-600 hover:text-amber-900 transition-colors text-sm font-medium"
               >
                 {link.label}
               </a>
@@ -43,12 +47,14 @@ export function Navigation() {
           </div>
 
           {/* CTA Button */}
-          <button className="hidden md:block px-6 py-2 bg-amber-700 hover:bg-amber-600 text-white rounded transition-colors font-medium text-sm">
+           <Link
+            href="#contact"
+            className="hidden md:block px-10 py-4 bg-amber-600 hover:bg-amber-800 text-white rounded transition-colors font-medium text-sm">
             Get Started
-          </button>
+          </Link>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white" aria-label="Toggle menu">
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-amber-600" aria-label="Toggle menu">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -61,14 +67,18 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-2 text-white/80 hover:text-amber-500 hover:bg-white/5 rounded transition-colors"
+                className="block px-4 py-2  text-amber-600 hover:text-amber-900 hover:bg-white/5 rounded transition-colors"
               >
                 {link.label}
               </a>
             ))}
-            <button className="w-full mt-4 px-4 py-2 bg-amber-700 hover:bg-amber-600 text-white rounded transition-colors font-medium">
-              Get Started
-            </button>
+               <Link
+                href="#contact"
+                className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-poppins font-medium text-center hover-lift transition-all duration-300 ease-out"
+                onClick={() => setIsOpen(false)}
+              >
+                Get Started
+              </Link>
           </div>
         )}
       </div>

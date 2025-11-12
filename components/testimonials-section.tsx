@@ -3,33 +3,35 @@
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight, Star } from "lucide-react"
 
-const testimonials = [
-  {
-    id: 1,
-    name: "Sarah Mitchell",
-    role: "CEO, Design Co.",
-    image: "/placeholder.svg?key=user1",
-    quote:
-      "An exceptional experience from start to finish. The attention to detail and quality is unmatched in the industry.",
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: "James Anderson",
-    role: "Founder, Tech Startup",
-    image: "/placeholder.svg?key=user2",
-    quote: "Working with this team transformed our vision into reality. Highly professional and incredibly skilled.",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Emma Rodriguez",
-    role: "Director, luxury Brand",
-    image: "/placeholder.svg?key=user3",
-    quote: "The level of sophistication and excellence they bring is truly remarkable. A pleasure to partner with.",
-    rating: 5,
-  },
-]
+ const testimonials = [
+    {
+      id: 1,
+      content:
+        "Investing in a by Maha Laxmi Developers transparent process made effortless experience. The best decision I ever made. The local transparent process made it an effortless experience.",
+      name: "Rajkumar Gharjale",
+      location: "Nagpur",
+      image: "https://pk.mahalaxmidevelopers.com/wp-content/uploads/2025/06/1-9.png",
+      rating: 5,
+    },
+    {
+      id: 2,
+      content:
+        "I wanted to invest in a growing area, and plots in Nagpur Besa seemed perfect. Maha Laxmi Developers exceeded my expectations. Highly recommended!",
+      name: "Priya Shah",
+      location: "Mumbai",
+      image: "https://pk.mahalaxmidevelopers.com/wp-content/uploads/2025/06/3-4.png",
+      rating: 5,
+    },
+    {
+      id: 3,
+      content:
+        "Investing in residential plots with Mahalaxmi Developers was one of my best decisions. Their transparency, clear titles, and prompt assistance gave me peace of mind.",
+      name: "Karan Akojwar",
+      location: "Pune",
+      image: "https://pk.mahalaxmidevelopers.com/wp-content/uploads/2025/06/4-2.png",
+      rating: 5,
+    },
+  ]
 
 export function TestimonialsSection() {
   const [current, setCurrent] = useState(0)
@@ -90,7 +92,7 @@ export function TestimonialsSection() {
                   </div>
 
                   {/* Quote */}
-                  <p className="text-lg lg:text-xl text-white/90 mb-8 leading-relaxed italic">"{testimonial.quote}"</p>
+                  <p className="text-lg lg:text-xl text-white/90 mb-8 leading-relaxed italic">"{testimonial.content}"</p>
 
                   {/* Author */}
                   <div className="flex items-center gap-4">
@@ -106,7 +108,7 @@ export function TestimonialsSection() {
                       >
                         {testimonial.name}
                       </p>
-                      <p className="text-amber-600 text-sm">{testimonial.role}</p>
+                      <p className="text-amber-600 text-sm">{testimonial.location}</p>
                     </div>
                   </div>
                 </div>

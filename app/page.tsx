@@ -10,6 +10,9 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { FAQSection } from "@/components/faq-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+import CallButton from "@/components/call-button"
+import WhatsappButton from "@/components/whatsapp-button"
+import NewsArticles from "@/components/news-articals"
 
 export default function Home() {
   return (
@@ -23,8 +26,11 @@ export default function Home() {
       <WhyChooseUsSection />
       <UserGuideSection />
       <TestimonialsSection />
+      <NewsArticles/>
       <FAQSection />
       <ContactSection />
+       <CallButton/>
+      <WhatsappButton />
       <Footer />
     </main>
   )

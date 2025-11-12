@@ -3,52 +3,56 @@
 import { ChevronDown } from "lucide-react"
 import { useState } from "react"
 
-const guides = [
-  {
-    step: "01",
-    title: "Getting Started",
-    description: "Begin your journey with our simple onboarding process",
-    details: [
-      "Create your account in less than 2 minutes",
-      "Complete your profile with essential information",
-      "Explore the dashboard and familiarize yourself with features",
-      "Watch our quick tutorial videos for guidance",
-    ],
-  },
-  {
-    step: "02",
-    title: "Setup & Configuration",
-    description: "Customize settings to match your needs",
-    details: [
-      "Configure your preferences in the settings panel",
-      "Set up integrations with your favorite tools",
-      "Manage team members and permissions",
-      "Establish your workflow and automation rules",
-    ],
-  },
-  {
-    step: "03",
-    title: "Advanced Features",
-    description: "Master the powerful tools available",
-    details: [
-      "Utilize advanced analytics and reporting",
-      "Create custom workflows and automation",
-      "Access API documentation for integration",
-      "Join our community forum for tips and tricks",
-    ],
-  },
-  {
-    step: "04",
-    title: "Optimization & Support",
-    description: "Get the most out of your experience",
-    details: [
-      "Schedule regular check-ins with support team",
-      "Attend webinars and training sessions",
-      "Access exclusive resources and documentation",
-      "Receive personalized recommendations",
-    ],
-  },
-]
+  const  guides = [
+    {
+      number: "01",
+      title: "Explore Properties",
+      description:
+        "Browse through our extensive collection of premium residential and commercial properties in Nagpur.",
+      icon: "🏠",
+      details: [
+        "Visit our website and create an account",
+        "Filter properties by location, price, and amenities",
+        "Save your favorite properties to a wishlist",
+      ],
+    },
+    {
+      number: "02",
+      title: "Schedule Site Visit",
+      description:
+        "Book a personalized site visit with our expert consultants to experience the property firsthand.",
+      icon: "📅",
+      details: [
+        "Select your preferred date and time",
+        "Our team will confirm your visit within 24 hours",
+        "Receive directions and consultant contact details",
+      ],
+    },
+    {
+      number: "03",
+      title: "Consultation & Financing",
+      description:
+        "Get expert advice on financing options and investment benefits from our experienced team.",
+      icon: "💼",
+      details: [
+        "Discuss investment strategies with our experts",
+        "Explore various financing and payment options",
+        "Get personalized financial advice",
+      ],
+    },
+    {
+      number: "04",
+      title: "Complete Purchase",
+      description:
+        "Finalize your investment with our transparent and hassle-free documentation process.",
+      icon: "✅",
+      details: [
+        "Sign all required legal documents",
+        "Complete payment processing",
+        "Receive your property documentation",
+      ],
+    },
+  ]
 
 export function UserGuideSection() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0)
@@ -80,7 +84,7 @@ export function UserGuideSection() {
                 className="w-full p-6 flex items-center justify-between hover:from-white/10 hover:to-transparent transition-all"
               >
                 <div className="flex items-center gap-6 text-left">
-                  <div className="text-4xl font-bold text-amber-600 opacity-40">{guide.step}</div>
+                  <div className="text-4xl font-bold text-amber-600 opacity-40">{guide.number}</div>
                   <div>
                     <h3 className="text-xl font-bold text-white">{guide.title}</h3>
                     <p className="text-white/60 text-sm mt-1">{guide.description}</p>

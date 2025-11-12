@@ -95,21 +95,6 @@ export function ContactSection() {
                 </div>
               </div>
             </div>
-
-            <div className="pt-8 border-t border-amber-900/20">
-              <p className="text-white/60 mb-4">Follow us on social media</p>
-              <div className="flex gap-4">
-                {["Twitter", "LinkedIn", "Instagram"].map((social) => (
-                  <a
-                    key={social}
-                    href="#"
-                    className="w-10 h-10 rounded-full border border-amber-600/50 hover:border-amber-500 hover:bg-white/5 flex items-center justify-center text-amber-600 hover:text-amber-400 transition-all"
-                  >
-                    <span className="text-xs font-bold">{social[0]}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Contact Form */}
