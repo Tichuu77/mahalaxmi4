@@ -17,8 +17,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Premium Brand",
-  description: "Modern, elegant, and performance-optimized",
+  title: "Mahalaxmi Developers",
+  description: "Mahalaxmi Developers - NMRDA & RL Residential Plotted Project",
   generator: "v0.app",
   icons: "/Mahalaxmi Infra new Logo.png"
 }
