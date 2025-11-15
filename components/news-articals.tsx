@@ -59,22 +59,22 @@ export default function NewsArticles() {
   }, [])
 
   return (
-    <section id="news" className="relative py-12 md:py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+    <section id="news" className="relative py-12 md:py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
       {/* Background Decoration - Removed for black theme */}
 
-      <div className="relative max-w-7xl mx-auto z-10">
+      <div className="relative max-w-[90%] mx-auto z-10">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-16">
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-amber-600/10 rounded-full">
-            <div className="w-2 h-2 bg-amber-600 rounded-full animate-pulse" />
-            <span className="text-amber-600 font-semibold text-xs sm:text-sm uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-primary/10 rounded-full">
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+            <span className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider">
               Latest Updates
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
             News & Articles
           </h2>
-          <p className="text-white/60 text-base md:text-lg max-w-3xl mx-auto">
+          <p className="text-primary/60 text-base md:text-lg max-w-3xl mx-auto">
             Stay updated with the latest news, project launches, and insights from Mahalaxmi Developers.
           </p>
         </div>
@@ -85,8 +85,8 @@ export default function NewsArticles() {
             return (
               <article
                 key={article.id}
-                className={`group bg-gradient-to-br from-white/5 to-transparent rounded-lg border overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer ${
-                  article.id === expandedId ? "border-amber-600/40 shadow-lg shadow-amber-900/20" : "border-amber-900/20 hover:border-amber-600/40"
+                className={`group bg-gradient-to-br from-primary/5 to-transparent rounded-lg border overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer ${
+                  article.id === expandedId ? "border-primary/40 shadow-lg shadow-primary/20" : "border-primary/20 hover:border-primary/40"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
@@ -99,7 +99,7 @@ export default function NewsArticles() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   <div className="absolute top-4 left-4">
-                    <span className="inline-block px-3 py-1 bg-gradient-to-br from-amber-600 to-amber-700 text-white text-xs font-semibold rounded-full shadow-md">
+                    <span className="inline-block px-3 py-1 bg-gradient-to-br from-primary to-primary text-white text-xs font-semibold rounded-full shadow-md">
                       {article.category}
                     </span>
                   </div>
@@ -108,20 +108,20 @@ export default function NewsArticles() {
                 {/* Text Section */}
                 <div className="p-6 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-amber-600 transition-colors">
+                    <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-primary transition-colors">
                       {article.title}
                     </h3>
-                    <p className="text-white/60 text-sm mb-4 leading-relaxed">{article.excerpt}</p>
+                    <p className="text-primary/60 text-sm mb-4 leading-relaxed">{article.excerpt}</p>
                   </div>
 
                   {/* Meta Info */}
-                  <div className="flex flex-col gap-2 mb-4 pb-4 border-b border-amber-900/20 text-xs text-white/60">
+                  <div className="flex flex-col gap-2 mb-4 pb-4 border-b border-primary/20 text-xs text-primary/60">
                     <div className="flex items-center gap-2">
-                      <Calendar size={14} className="text-amber-600" />
+                      <Calendar size={14} className="text-primary" />
                       <span>{article.date}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <User size={14} className="text-amber-600" />
+                      <User size={14} className="text-primary" />
                       <span>{article.author}</span>
                     </div>
                   </div>
@@ -129,7 +129,7 @@ export default function NewsArticles() {
                   {/* Read More Button */}
                   <button
                     onClick={(e) => toggleExpand(article.id, e)}
-                    className="inline-flex items-center gap-2 text-amber-600 font-semibold hover:text-amber-500 transition-colors hover:cursor-pointer"
+                    className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary transition-colors hover:cursor-pointer"
                   >
                     {article.id === expandedId ? (
                       <>
@@ -145,7 +145,7 @@ export default function NewsArticles() {
                   {/* Animated Full Content */}
                   {article.id === expandedId && (
                     <div
-                      className="mt-4 text-sm text-white/80 leading-relaxed overflow-hidden transition-all duration-300"
+                      className="mt-4 text-sm text-primary/80 leading-relaxed overflow-hidden transition-all duration-300"
                       style={{
                         animation: "slideDown 0.3s ease-out",
                       }}

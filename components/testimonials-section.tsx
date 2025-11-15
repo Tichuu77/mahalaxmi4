@@ -60,17 +60,17 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="py-20 lg:py-32 bg-gradient-to-b from-black to-amber-950/10 relative overflow-hidden"
+      className="py-20 lg:py-32 bg-gradient-to-b from-white/20 to-primary/50 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span
             style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-            className="text-amber-600 font-semibold text-sm uppercase tracking-wider"
+            className="text-primary font-semibold text-sm uppercase tracking-wider"
           >
             Testimonials
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mt-4 text-balance">Loved by Clients</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-primary mt-4 text-balance">Loved by Clients</h2>
         </div>
 
         <div className="relative max-w-3xl mx-auto">
@@ -83,11 +83,11 @@ export function TestimonialsSection() {
                   index === current ? "opacity-100 scale-100" : "absolute opacity-0 scale-95 pointer-events-none"
                 }`}
               >
-                <div className="bg-gradient-to-br from-white/10 to-white/5 border border-amber-900/20 rounded-lg p-8 lg:p-12">
+                <div className="bg-gradient-to-br from-white/10 to-white/5 border border-primary/20 rounded-lg p-8 lg:p-12">
                   {/* Stars */}
                   <div className="flex gap-1 mb-6">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} size={18} className="fill-amber-500 text-amber-500" />
+                      <Star key={i} size={18} className="fill-amber-400 text-amber" />
                     ))}
                   </div>
 
@@ -99,7 +99,7 @@ export function TestimonialsSection() {
                     <img
                       src={testimonial.image || "/placeholder.svg"}
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-amber-600"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-primary"
                     />
                     <div>
                       <p
@@ -108,7 +108,7 @@ export function TestimonialsSection() {
                       >
                         {testimonial.name}
                       </p>
-                      <p className="text-amber-600 text-sm">{testimonial.location}</p>
+                      <p className="text-primary text-sm">{testimonial.location}</p>
                     </div>
                   </div>
                 </div>
@@ -120,7 +120,7 @@ export function TestimonialsSection() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={goToPrevious}
-              className="p-2 rounded-full border border-amber-600/50 hover:border-amber-500 text-amber-600 hover:text-amber-500 transition-colors"
+              className="p-2 rounded-full hover:cursor-pointer border border-primary/50 hover:border-white text-primary hover:textwhite transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={20} />
@@ -136,7 +136,7 @@ export function TestimonialsSection() {
                     setAutoplay(false)
                   }}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === current ? "bg-amber-600 w-6" : "bg-amber-600/40 hover:bg-amber-600/60"
+                    index === current ? "bg-primary w-6" : "bg-primary/40 hover:bg-primary/60"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -145,7 +145,7 @@ export function TestimonialsSection() {
 
             <button
               onClick={goToNext}
-              className="p-2 rounded-full border border-amber-600/50 hover:border-amber-500 text-amber-600 hover:text-amber-500 transition-colors"
+              className="p-2 hover:cursor-pointer rounded-full border border-primary/50 hover:border-white text-primary hover:textwhite transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight size={20} />

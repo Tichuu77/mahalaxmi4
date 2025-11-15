@@ -19,7 +19,7 @@ export function Navigation() {
   ]
 
   return (
-    <nav className="fixed top-0 w-full bg-white backdrop-blur-md z-50 border-b border-amber-900/20">
+    <nav className="fixed top-0 w-full bg-foreground backdrop-blur-md z-50 border-b border-amber-900/20">
       <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -27,7 +27,7 @@ export function Navigation() {
             <img src="/Mahalaxmi Infra new Logo.png" alt="Logo" className=" w-20 h-20" />
             <span
               style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-              className="font-bold text-amber-600 text-xl"
+              className="font-bold text-primary text-xl"
             >
              Mahalaxmi Developers
             </span>
@@ -39,7 +39,7 @@ export function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-amber-600 hover:text-amber-900 transition-colors text-sm font-medium"
+                className="text-primary hover:text-amber-900 transition-colors text-sm font-medium"
               >
                 {link.label}
               </a>
@@ -49,12 +49,12 @@ export function Navigation() {
           {/* CTA Button */}
            <Link
             href="#contact"
-            className="hidden md:block px-10 py-4 bg-amber-600 hover:bg-amber-800 text-white rounded transition-colors font-medium text-sm">
+            className="hidden md:block px-10 py-4 bg-primary hover:bg-primary/80 text-white rounded transition-colors font-medium text-sm">
             Get Started
           </Link>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-amber-600" aria-label="Toggle menu">
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-primary" aria-label="Toggle menu">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -67,7 +67,7 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-2  text-amber-600 hover:text-amber-900 hover:bg-white/5 rounded transition-colors"
+                className="block px-4 py-2  text-primary  hover:text-primary/80 hover:bg-white/5 rounded transition-colors"
               >
                 {link.label}
               </a>

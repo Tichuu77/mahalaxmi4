@@ -59,7 +59,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-screen bg-black flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative min-h-screen   flex items-center justify-center overflow-hidden pt-16">
       {/* Video Background - Cloudinary */}
       <div className="absolute inset-0 z-0">
         <div ref={videoRef} className="w-full h-full">
@@ -77,15 +77,15 @@ export function HeroSection() {
             }}
           />
         </div>
-        {/* Enhanced gradient overlay with amber tones */}
+        {/* Enhanced gradient overlay with primary tones */}
         <div className="absolute inset-0  pointer-events-none" />
       </div>
 
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-30 pointer-events-none z-[1]">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96  rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse"></div>
         <div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-700/20 rounded-full blur-xl animate-pulse"
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-xl animate-pulse"
           style={{ animationDelay: "1s" }}
         ></div>
       </div>
@@ -99,7 +99,7 @@ export function HeroSection() {
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 text-balance leading-tight drop-shadow-lg">
             Build Your Dream Home With{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary/90 to-secondary">
               Mahalaxmi Developers
             </span>{" "}
             In Nagpur
@@ -117,7 +117,7 @@ export function HeroSection() {
         </div>
 
         <div
-          className={`transition-all duration-1000 delay-200 inline-block py-2 px-6 bg-gradient-to-r from-amber-600 to-amber-700 mb-4 shadow-lg ${
+          className={`transition-all duration-1000 delay-200 inline-block py-2 px-6 bg-primary mb-4 shadow-lg ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -143,21 +143,21 @@ export function HeroSection() {
         >
           <button 
             onClick={() => handleScrollToSection("contact")}
-            className="group hover:cursor-pointer px-8 py-4 bg-amber-700 hover:bg-amber-600 text-white rounded font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-amber-900/50 hover:shadow-2xl hover:scale-105"
+            className="group hover:cursor-pointer px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-primary/50 hover:shadow-2xl hover:scale-105"
           >
             Contact Us
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </button>
           <button 
             onClick={() => handleScrollToSection("projects")}
-            className="px-8 hover:cursor-pointer py-4 bg-white/10 hover:bg-white/20 text-white rounded font-semibold transition-all duration-300 border border-white/20 hover:scale-105 hover:border-amber-500/50"
+            className="px-8 hover:cursor-pointer py-4 bg-white/10 hover:bg-white/20 text-white rounded font-semibold transition-all duration-300 border border-white/20 hover:scale-105 hover:border-primary/50"
           >
             Explore Projects
           </button>
         </div>
 
         <div
-          className={`transition-all duration-1000 delay-500 inline-block bg-gradient-to-r from-amber-700 to-amber-600 py-3 px-6 rounded shadow-lg ${
+          className={`transition-all duration-1000 delay-500 inline-block bg-primary py-3 px-6 rounded shadow-lg ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -173,8 +173,8 @@ export function HeroSection() {
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="w-6 h-10 border-2 border-amber-500 rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-2 bg-amber-500 rounded-full animate-pulse" />
+        <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-2">
+          <div className="w-1.5 h-2 bg-primary rounded-full animate-pulse" />
         </div>
       </div>
     </section>

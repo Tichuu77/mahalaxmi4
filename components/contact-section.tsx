@@ -1,11 +1,9 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 
-export function ContactSection() {
+export default function ContactSection() {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -13,16 +11,15 @@ export function ContactSection() {
   })
   const [submitted, setSubmitted] = useState(false)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e:any) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault()
-    // Simulate form submission
     setSubmitted(true)
     setTimeout(() => {
       setFormState({ name: "", email: "", message: "" })
@@ -31,17 +28,17 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 lg:py-32 bg-black relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 lg:py-32 bg-background relative overflow-hidden">
+      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span
-            style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-            className="text-amber-600 font-semibold text-sm uppercase tracking-wider"
+            style={{ fontFamily: "var(--font-heading)" }}
+            className="text-primary font-semibold text-sm uppercase tracking-wider"
           >
             Get in Touch
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mt-4 text-balance">Contact Us</h2>
-          <p className="text-white/60 text-lg mt-4 max-w-2xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-bold text-primary mt-4">Contact Us</h2>
+          <p className="text-primary/60 text-lg mt-4 max-w-2xl mx-auto">
             Have a question or ready to get started? We'd love to hear from you.
           </p>
         </div>
@@ -51,69 +48,69 @@ export function ContactSection() {
           <div className="space-y-8 scroll-fade">
             <div>
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center text-white flex-shrink-0 mt-1">
+                <a href="tel:+198530003338" className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-white flex-shrink-0 mt-1">
                   <Phone size={22} />
-                </div>
+                </a>
                 <div>
                   <h3
-                    style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-                    className="font-bold text-white mb-1"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                    className="font-bold text-primary mb-1"
                   >
                     Phone
                   </h3>
-                  <p className="text-white/60">+1 (555) 123-4567</p>
+                  <p className="text-primary/60">+198530003338</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center text-white flex-shrink-0 mt-1">
+                <a href="mailto:siddhantbansod44@gmail.com" className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-white flex-shrink-0 mt-1">
                   <Mail size={22} />
-                </div>
+                </a>
                 <div>
                   <h3
-                    style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-                    className="font-bold text-white mb-1"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                    className="font-bold text-primary mb-1"
                   >
                     Email
                   </h3>
-                  <p className="text-white/60">hello@premium.com</p>
+                  <p className="text-primary/60">siddhantbansod44@gmail.com</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center text-white flex-shrink-0 mt-1">
+                <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-white flex-shrink-0 mt-1">
                   <MapPin size={22} />
                 </div>
                 <div>
                   <h3
-                    style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-                    className="font-bold text-white mb-1"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                    className="font-bold text-primary mb-1"
                   >
                     Address
                   </h3>
-                  <p className="text-white/60">123 Luxury Avenue, Premium City, PC 12345</p>
+                  <p className="text-primary/60">Nagpur Maharashtra India 441106</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="scroll-fade" style={{ animationDelay: "100ms" }}>
-            <div className="space-y-6 bg-gradient-to-br from-white/5 to-transparent border border-amber-900/20 p-8 rounded-lg">
+          <div className="scroll-fade" style={{ animationDelay: "100ms" }}>
+            <div className="space-y-6 bg-background border border-border p-8 rounded-lg">
               {submitted ? (
                 <div className="py-8 text-center">
-                  <div className="w-12 h-12 rounded-full bg-green-500/20 border border-green-500/50 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="text-white font-medium">Thanks for reaching out!</p>
-                  <p className="text-white/60 text-sm mt-1">We'll get back to you soon.</p>
+                  <p className="text-primary font-medium">Thanks for reaching out!</p>
+                  <p className="text-muted-primary text-sm mt-1">We'll get back to you soon.</p>
                 </div>
               ) : (
                 <>
                   <div>
-                    <label htmlFor="name" className="block text-white font-medium mb-2 text-sm">
+                    <label htmlFor="name" className="block text-primary font-medium mb-2 text-sm">
                       Full Name
                     </label>
                     <input
@@ -123,13 +120,13 @@ export function ContactSection() {
                       value={formState.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/5 border border-amber-900/20 rounded text-white placeholder-white/40 focus:border-amber-600 focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 bg-primary/80 border border-border rounded text-white placeholder:text-muted-primary focus:border-ring focus:outline-none transition-colors"
                       placeholder="Your name"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-white font-medium mb-2 text-sm">
+                    <label htmlFor="email" className="block text-primary font-medium mb-2 text-sm">
                       Email Address
                     </label>
                     <input
@@ -139,13 +136,13 @@ export function ContactSection() {
                       value={formState.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/5 border border-amber-900/20 rounded text-white placeholder-white/40 focus:border-amber-600 focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 bg-primary/80 border border-border rounded text-white placeholder:text-muted-primary focus:border-ring focus:outline-none transition-colors"
                       placeholder="your@email.com"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-white font-medium mb-2 text-sm">
+                    <label htmlFor="message" className="block text-primary font-medium mb-2 text-sm">
                       Message
                     </label>
                     <textarea
@@ -155,14 +152,15 @@ export function ContactSection() {
                       onChange={handleChange}
                       required
                       rows={4}
-                      className="w-full px-4 py-3 bg-white/5 border border-amber-900/20 rounded text-white placeholder-white/40 focus:border-amber-600 focus:outline-none transition-colors resize-none"
+                      className="w-full px-4 py-3 bg-primary/80 border border-border rounded text-white placeholder:text-muted-white focus:border-ring focus:outline-none transition-colors resize-none"
                       placeholder="Your message..."
                     />
                   </div>
 
                   <button
-                    type="submit"
-                    className="w-full px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white rounded font-medium flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:shadow-amber-900/50"
+                    type="button"
+                    onClick={handleSubmit}
+                    className="w-full px-6 py-3 bg-primary hover:bg-primary/80 text-white hover:text-white rounded font-medium flex items-center justify-center gap-2 transition-all hover:shadow-lg"
                   >
                     Send Message
                     <Send size={18} />
@@ -170,7 +168,7 @@ export function ContactSection() {
                 </>
               )}
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </section>

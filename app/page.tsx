@@ -8,7 +8,7 @@ import { WhyChooseUsSection } from "@/components/why-choose-us-section"
 import { UserGuideSection } from "@/components/user-guide-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { FAQSection } from "@/components/faq-section"
-import { ContactSection } from "@/components/contact-section"
+import ContactSection from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import CallButton from "@/components/call-button"
 import WhatsappButton from "@/components/whatsapp-button"
@@ -16,7 +16,7 @@ import NewsArticles from "@/components/news-articals"
 
 export default function Home() {
   return (
-    <main className="bg-black">
+    <main >
       <Navigation />
       <HeroSection />
       <AboutSection />

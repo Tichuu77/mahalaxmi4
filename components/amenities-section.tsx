@@ -70,26 +70,26 @@ export function AmenitiesSection() {
   const [activeTab, setActiveTab] = useState("all")
 
   return (
-    <section id="amenities" className="py-20 lg:py-32 bg-black relative overflow-hidden">
+    <section id="amenities" className="py-20 lg:py-32 bg-background relative overflow-hidden">
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-amber-600 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-amber-700 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-amber-500 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-0 left-0 w-72 h-72 bg-background rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-background rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-background rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-3 px-4 py-2 bg-amber-600/20 rounded-full border border-amber-600/40 animate-bounce" style={{animationDuration: '3s'}}>
-            <div className="w-2 h-2 bg-amber-600 rounded-full animate-ping"></div>
+          <div className="inline-flex items-center gap-2 mb-3 px-4 py-2 bg-background/10 rounded-full border border-primary animate-bounce" style={{animationDuration: '3s'}}>
+            <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
             <span
               style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-              className="text-amber-600 font-semibold text-sm uppercase tracking-wider"
+              className="text-primary font-semibold text-sm uppercase tracking-wider"
             >
               Our Amenities
             </span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mt-4 text-balance">Everything You Need</h2>
-          <p className="text-white/60 text-lg mt-4 max-w-2xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-bold text-primary mt-4 text-balance">Everything You Need</h2>
+          <p className="text-primary/60 text-lg mt-4 max-w-2xl mx-auto">
             Comprehensive features designed to exceed your expectations
           </p>
         </div>
@@ -98,40 +98,40 @@ export function AmenitiesSection() {
         <div className="flex justify-center gap-3 mb-8 flex-wrap">
           <button
             onClick={() => setActiveTab("all")}
-            className={`px-6 py-2 rounded-full font-semibold text-sm whitespace-nowrap transition-all duration-300 ${
+            className={`px-6 py-2 hover:cursor-pointer rounded-full font-semibold text-sm whitespace-nowrap transition-all duration-300 ${
               activeTab === "all"
-                ? "bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-lg shadow-amber-600/50"
-                : "bg-white/5 text-white/70 hover:bg-white/10 border border-amber-900/20"
+                ? " bg-primary   text-white  "
+                : "bg-white/5 text-black/70 hover:bg-white/10 border border-amber-900/20"
             }`}
           >
             All Amenities
           </button>
           <button
             onClick={() => setActiveTab("wellness")}
-            className={`px-6 py-2 rounded-full font-semibold text-sm whitespace-nowrap transition-all duration-300 ${
+            className={`px-6 py-2 hover:cursor-pointer rounded-full font-semibold text-sm whitespace-nowrap transition-all duration-300 ${
               activeTab === "wellness"
-                ? "bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-lg shadow-amber-600/50"
-                : "bg-white/5 text-white/70 hover:bg-white/10 border border-amber-900/20"
+                ? " bg-primary   text-white "
+                : "bg-white/5 text-black/70 hover:bg-white/10 border border-amber-900/20"
             }`}
           >
             🧘 Wellness
           </button>
           <button
             onClick={() => setActiveTab("entertainment")}
-            className={`px-6 py-2 rounded-full font-semibold text-sm whitespace-nowrap transition-all duration-300 ${
+            className={`px-6 py-2 hover:cursor-pointer rounded-full font-semibold text-sm whitespace-nowrap transition-all duration-300 ${
               activeTab === "entertainment"
-                ? "bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-lg shadow-amber-600/50"
-                : "bg-white/5 text-white/70 hover:bg-white/10 border border-amber-900/20"
+                ? " bg-primary   text-white "
+                : "bg-white/5 text-black/70 hover:bg-white/10 border border-amber-900/20"
             }`}
           >
             🎮 Entertainment
           </button>
           <button
             onClick={() => setActiveTab("facilities")}
-            className={`px-6 py-2 rounded-full font-semibold text-sm whitespace-nowrap transition-all duration-300 ${
+            className={`px-6 py-2 hover:cursor-pointer rounded-full font-semibold text-sm whitespace-nowrap transition-all duration-300 ${
               activeTab === "facilities"
-                ? "bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-lg shadow-amber-600/50"
-                : "bg-white/5 text-white/70 hover:bg-white/10 border border-amber-900/20"
+                ? " bg-primary   text-white "
+                : "bg-white/5 text-black/70 hover:bg-white/10 border border-amber-900/20"
             }`}
           >
             🏢 Facilities
@@ -155,7 +155,7 @@ export function AmenitiesSection() {
               return (
                 <div
                   key={index}
-                  className="group p-4 md:p-6 rounded-lg md:rounded-xl border border-amber-900/20 bg-gradient-to-br from-white/5 to-transparent hover:from-white/10 hover:to-white/5 transition-all duration-300 hover:border-amber-600/40 hover:shadow-lg hover:shadow-amber-900/50 hover:scale-105 relative overflow-hidden scroll-fade"
+                  className="group p-4 md:p-6 rounded-lg md:rounded-xl border border-primary/20 bg-gradient-to-br from-white/5 to-transparent hover:from-white/10 hover:to-white/5 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/50 hover:scale-105 relative overflow-hidden scroll-fade"
                   style={{ 
                     animation: 'fadeInUp 0.6s ease-out forwards',
                     animationDelay: `${index * 50}ms`,
@@ -163,10 +163,10 @@ export function AmenitiesSection() {
                   }}
                 >
                   {/* Shimmer effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-amber-600/0 via-amber-600/20 to-amber-600/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
                   
                   {/* Icon */}
-                  <div className="mb-3 md:mb-4 w-10 h-10 md:w-12 md:h-12 mx-auto rounded-lg bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center text-white group-hover:shadow-lg group-hover:shadow-amber-900/50 transition-all group-hover:rotate-12 relative">
+                  <div className="mb-3 md:mb-4 w-10 h-10 md:w-12 md:h-12 mx-auto rounded-lg  bg-primary   flex items-center justify-center text-white group-hover:shadow-lg group-hover:shadow-amber-900/50 transition-all group-hover:rotate-12 relative">
                     {isEmoji ? (
                       <span className="text-xl md:text-2xl group-hover:scale-110 transition-transform">{amenity.emoji}</span>
                     ) : (
@@ -177,11 +177,11 @@ export function AmenitiesSection() {
                   </div>
                   
                   {/* Text */}
-                  <h3 className="text-xs md:text-sm lg:text-base font-bold text-white mb-1 md:mb-2 text-center">{amenity.title}</h3>
-                  <p className="text-white/60 text-[10px] md:text-xs leading-relaxed text-center line-clamp-2 md:line-clamp-3">{amenity.description}</p>
+                  <h3 className="text-xs md:text-sm lg:text-base font-bold text-primary mb-1 md:mb-2 text-center">{amenity.title}</h3>
+                  <p className="text-black text-[10px] md:text-xs leading-relaxed text-center line-clamp-2 md:line-clamp-3">{amenity.description}</p>
                   
                   {/* Corner glow */}
-                  <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-amber-600/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-primary/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
               )
             })}

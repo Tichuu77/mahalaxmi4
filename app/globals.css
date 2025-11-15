@@ -5,15 +5,16 @@
 
 :root {
   /* Premium brown, white, black theme */
-  --background: #0d0d0d;
+  --background:  #ffffff;
   --foreground: #ffffff;
+  --tcolor : #0d0d0d;
   --card: #1a1a1a;
   --card-foreground: #ffffff;
   --popover: #1a1a1a;
   --popover-foreground: #ffffff;
-  --primary: #8b4513;
+  --primary: #30534A;
   --primary-foreground: #ffffff;
-  --secondary: #f5f5f5;
+  --secondary: #C9862b;
   --secondary-foreground: #0d0d0d;
   --muted: #2a2a2a;
   --muted-foreground: #999999;
@@ -43,8 +44,8 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --background: oklch(100% 0.00011 271.152);
+  --foreground: oklch(0% 0 0);
   --card: oklch(0.145 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);

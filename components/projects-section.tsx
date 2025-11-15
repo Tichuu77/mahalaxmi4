@@ -138,9 +138,9 @@ function ProjectCard({ project }: { project: Project }) {
   const [isHovered, setIsHovered] = useState(false)
 
   const statusColors = {
-    completed: "bg-green-500/20 text-green-400 border-green-500/40",
-    ongoing: "bg-blue-500/20 text-blue-400 border-blue-500/40",
-    upcoming: "bg-amber-500/20 text-amber-400 border-amber-500/40",
+    completed: "bg-green-500/80 text-white border-green-500/40",
+    ongoing: "bg-blue-500/80 text-white border-blue-500/40",
+    upcoming: "bg-primary/80 text-white border-primary/40",
   }
 
   const statusLabels = {
@@ -157,7 +157,7 @@ function ProjectCard({ project }: { project: Project }) {
 
   return (
     <div
-      className="group bg-gradient-to-br from-white/5 to-transparent rounded-xl overflow-hidden border border-amber-900/20 hover:border-amber-600/40 hover:shadow-lg hover:shadow-amber-900/50 transition-all duration-300 hover:scale-105 relative"
+      className="group bg-gradient-to-br from-white/5 to-transparent rounded-xl overflow-hidden border border-amber-900/20 hover:border-primary/40 hover:shadow-lg hover:shadow-amber-900/50 transition-all duration-300 hover:scale-105 relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{ 
@@ -166,7 +166,7 @@ function ProjectCard({ project }: { project: Project }) {
       }}
     >
       {/* Shimmer effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-amber-600/0 via-amber-600/20 to-amber-600/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 pointer-events-none"></div>
 
       {/* Image Container */}
       <div className="relative h-48 md:h-64 overflow-hidden bg-black/50">
@@ -190,7 +190,7 @@ function ProjectCard({ project }: { project: Project }) {
 
         {/* Title Overlay on Mobile */}
         <div className="absolute bottom-0 left-0 right-0 p-4 md:hidden">
-          <h3 className="text-white font-bold text-lg drop-shadow-lg">
+          <h3 className="text-primary font-bold text-lg drop-shadow-lg">
             {project.title}
           </h3>
         </div>
@@ -199,18 +199,18 @@ function ProjectCard({ project }: { project: Project }) {
       {/* Content */}
       <div className="p-4 md:p-6 relative z-10">
         {/* Title - Desktop only */}
-        <h3 className="hidden md:block text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+        <h3 className="hidden md:block text-xl font-bold text-primary mb-2 group-hover:text-primary transition-colors">
           {project.title}
         </h3>
 
         {/* Location */}
-        <div className="flex items-center gap-2 text-white/60 mb-3">
-          <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0" />
+        <div className="flex items-center gap-2 text-primary/60 mb-3">
+          <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
           <p className="text-sm font-medium">{project.location}</p>
         </div>
 
         {/* Description */}
-        <p className="text-white/60 text-xs md:text-sm mb-4 leading-relaxed line-clamp-2 md:line-clamp-3">
+        <p className="text-primary/60 text-xs md:text-sm mb-4 leading-relaxed line-clamp-2 md:line-clamp-3">
           {project.description}
         </p>
 
@@ -218,7 +218,7 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="flex gap-2">
           <button
             onClick={handleWhatsApp}
-            className="flex-1 bg-gradient-to-r from-amber-600 to-amber-700 text-white py-2.5 md:py-3 px-4 rounded-lg font-semibold hover:from-amber-500 hover:to-amber-600 hover:shadow-lg hover:shadow-amber-900/50 transition-all flex items-center justify-center gap-2 group/btn"
+            className="flex-1 bg-gradient-to-r from-primary to-primary text-white py-2.5 md:py-3 px-4 rounded-lg font-semibold hover:from-primary hover:to-primary hover:shadow-lg hover:shadow-amber-900/50 transition-all flex items-center justify-center gap-2 group/btn"
           >
             <Phone className="w-4 h-4" />
             <span className="text-sm md:text-base">Contact Us</span>
@@ -228,7 +228,7 @@ function ProjectCard({ project }: { project: Project }) {
 
         {/* Quick Info Tags */}
         <div className="flex flex-wrap gap-2 mt-3">
-          <span className="px-2 py-1 bg-amber-600/20 text-amber-400 text-xs rounded-full border border-amber-600/30">
+          <span className="px-2 py-1 bg-primary/20 text-primary text-xs rounded-full border border-primary/30">
             NMRDA Approved
           </span>
           <span className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full border border-green-500/30">
@@ -238,7 +238,7 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {/* Corner glow */}
-      <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-amber-600/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+      <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-primary/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
     </div>
   )
 }
@@ -258,29 +258,29 @@ export function ProjectsSection() {
       : allProjects.filter((project) => project.status === activeTab)
 
   return (
-    <section id="projects" className="py-20 lg:py-32 bg-black relative overflow-hidden">
+    <section id="projects" className="py-20 lg:py-32 bg-white relative overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-amber-600 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-amber-700 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-amber-500 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-      </div>
+      {/* <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-0 left-0 w-72 h-72 bg-primary rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-primary rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-primary rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      </div> */}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 mb-3 px-4 py-2 bg-amber-600/20 rounded-full border border-amber-600/40 animate-bounce" style={{animationDuration: '3s'}}>
-              <div className="w-2 h-2 bg-amber-600 rounded-full animate-ping"></div>
+            <div className="inline-flex items-center gap-2 mb-3 px-4 py-2 bg-primary/20 rounded-full border border-primary/40 animate-bounce" style={{animationDuration: '3s'}}>
+              <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
               <span
                 style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-                className="text-amber-600 font-semibold text-sm uppercase tracking-wider"
+                className="text-primary font-semibold text-sm uppercase tracking-wider"
               >
                 Portfolio
               </span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mt-4 text-balance">Our Projects</h2>
-            <p className="text-white/60 text-lg mt-4 max-w-2xl">
+            <h2 className="text-4xl lg:text-5xl font-bold text-primary mt-4 text-balance">Our Projects</h2>
+            <p className="text-primary/60 text-lg mt-4 max-w-2xl">
               Explore our portfolio of completed, ongoing, and upcoming developments
             </p>
           </div>
@@ -299,8 +299,8 @@ export function ProjectsSection() {
               onClick={() => setActiveTab(tab.value as any)}
               className={`px-5 md:px-6 py-2.5 rounded-full font-semibold transition-all text-sm md:text-base ${
                 activeTab === tab.value
-                  ? "bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-lg shadow-amber-600/50"
-                  : "bg-white/5 text-white/70 hover:bg-white/10 border border-amber-900/20 hover:border-amber-600/40"
+                  ? "bg-gradient-to-r from-primary to-primary text-white shadow-lg shadow-primary/50"
+                  : "bg-white/5 text-primary/70 hover:bg-white/10 border border-primary-900/20 hover:border-primary/40"
               }`}
             >
               <span className="mr-1">{tab.icon}</span>
@@ -324,7 +324,7 @@ export function ProjectsSection() {
         ) : (
           <div className="text-center py-16">
             <div className="text-6xl mb-4">🏗️</div>
-            <p className="text-white/60 text-lg">
+            <p className="text-primary/60 text-lg">
               No projects available under this category.
             </p>
           </div>

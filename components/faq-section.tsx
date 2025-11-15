@@ -46,46 +46,46 @@ export function FAQSection() {
   const [openId, setOpenId] = useState<number | null>(null)
 
   return (
-    <section className="py-20 lg:py-32 bg-black relative">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 lg:py-32 bg-background relative">
+      <div className="max-w-[60%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span
             style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-            className="text-amber-600 font-semibold text-sm uppercase tracking-wider"
+            className="text-primary font-semibold text-sm uppercase tracking-wider"
           >
             FAQ
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mt-4 text-balance">Common Questions</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-primary mt-4 text-balance">Common Questions</h2>
         </div>
 
         <div className="space-y-3">
           {faqs.map((faq, index) => (
             <div
               key={faq.id}
-              className="border border-amber-900/20 rounded-lg overflow-hidden scroll-fade"
+              className="border border-primary/20 rounded-lg overflow-hidden scroll-fade"
               style={{ animationDelay: `${index * 50}ms` }}
             >
               <button
                 onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
-                className="w-full px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors text-left"
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-primary/5 transition-colors text-left"
               >
                 <span
                   style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-                  className="font-semibold text-white"
+                  className="font-semibold text-primary"
                 >
                   {faq.question}
                 </span>
                 <ChevronDown
                   size={20}
-                  className={`text-amber-600 transition-transform duration-300 flex-shrink-0 ${
+                  className={`text-primary hover:cursor-pointer transition-transform duration-300 flex-shrink-0 ${
                     openId === faq.id ? "rotate-180" : ""
                   }`}
                 />
               </button>
 
               {openId === faq.id && (
-                <div className="px-6 py-4 bg-white/5 border-t border-amber-900/20 animate-in slide-in-from-top-2 duration-200">
-                  <p className="text-white/70 leading-relaxed">{faq.answer}</p>
+                <div className="px-6 py-4 bg-primary/5 border-t border-primary/20 animate-in slide-in-from-top-2 duration-200">
+                  <p className="text-primary/70 leading-relaxed">{faq.answer}</p>
                 </div>
               )}
             </div>
