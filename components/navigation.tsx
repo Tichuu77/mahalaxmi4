@@ -24,7 +24,7 @@ export function Navigation() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center gap-2 cursor-pointer">
-            <img src="/Mahalaxmi Infra new Logo.png" alt="Logo" className=" w-20 h-20" />
+            <img src="/Malaxmi-Final-Logo.-2png.png" alt="Logo" className=" w-20 h-20" />
             <span
               style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
               className="font-bold text-primary text-xl"
@@ -39,7 +39,7 @@ export function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-primary hover:text-amber-900 transition-colors text-sm font-medium"
+                className="text-primary hover:text-secondary/80 transition-colors text-sm font-medium"
               >
                 {link.label}
               </a>
@@ -49,7 +49,7 @@ export function Navigation() {
           {/* CTA Button */}
            <Link
             href="#contact"
-            className="hidden md:block px-10 py-4 bg-primary hover:bg-primary/80 text-white rounded transition-colors font-medium text-sm">
+            className="hidden md:block px-10 py-4 bg-gradient-to-r from-primary to-secondary hover:bg-primary/80 text-foreground rounded transition-colors font-medium text-sm">
             Get Started
           </Link>
 
@@ -67,14 +67,14 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-2  text-primary  hover:text-primary/80 hover:bg-white/5 rounded transition-colors"
+                className="block px-4 py-2 text-primary hover:text-secondary/80 hover:bg-white/5 rounded transition-colors"
               >
                 {link.label}
               </a>
             ))}
                <Link
                 href="#contact"
-                className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-poppins font-medium text-center hover-lift transition-all duration-300 ease-out"
+                className="bg-gradient-to-r from-primary to-secondary text-foreground px-6 py-2 rounded-lg font-poppins font-medium text-center hover-lift transition-all duration-300 ease-out"
                 onClick={() => setIsOpen(false)}
               >
                 Get Started

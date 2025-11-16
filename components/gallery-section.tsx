@@ -95,16 +95,24 @@ export function GallerySection() {
       <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className={`text-center mb-8 md:mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          <span className="text-primary font-semibold text-xs md:text-sm uppercase tracking-wider mb-2 block">
-            Gallery
-          </span>
+          <div className="text-center">
+            <div className="max inline-flex items-center gap-2 mb-3 px-4 py-2 bg-primary/10 rounded-full border border-primary/30">
+            <div className="w-2 h-2 bg-gradient-to-br from-primary to-secondary rounded-full animate-pulse" />
+            <span
+              style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
+              className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider"
+            >
+              Gallery
+            </span>
+          </div>
+        </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 md:mb-4">
             Visual{" "}
             <span className="  bg-clip-text bg-gradient-to-r from-w hite to-primary">
               Inspiration
             </span>
           </h2>
-          <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-primary to-white mx-auto"></div>
+          <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-secondary to-white mx-auto"></div>
         </div>
 
         {/* Mobile Slider */}
@@ -125,10 +133,10 @@ export function GallerySection() {
                       onClick={() => setSelectedId(item.id)}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-4">
-                      <div className="text-white">
-                        <span className="text-white text-xs uppercase tracking-wider block mb-1">{item.category}</span>
+                      <div className="text-primary">
+                        <span className="text-primary text-xs uppercase tracking-wider block mb-1">{item.category}</span>
                         <p className="font-bold text-lg mb-1">{item.alt}</p>
-                        <p className="text-xs text-white/70">Tap to view full size</p>
+                        <p className="text-xs text-primary/70">Tap to view full size</p>
                       </div>
                     </div>
                   </div>
@@ -139,15 +147,15 @@ export function GallerySection() {
             {/* Slider Controls */}
             <button
               onClick={prevSlide}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-primary active:scale-95 transition-all z-10"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-gradient-to-b from-secondary/90 to-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-primary active:scale-95 transition-all z-10"
             >
-              <ChevronLeft className="w-5 h-5 text-white" />
+              <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-primary active:scale-95 transition-all z-10"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-gradient-to-b from-secondary/90 to-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-primary active:scale-95 transition-all z-10"
             >
-              <ChevronRight className="w-5 h-5 text-white" />
+              <ChevronRight className="w-5 h-5 text-primary" />
             </button>
 
             {/* Dots Indicator */}
@@ -157,7 +165,7 @@ export function GallerySection() {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    currentSlide === index ? "w-8 bg-primary" : "w-2 bg-white/30"
+                    currentSlide === index ? "w-8 bg-gradient-to-r from-primary to-secondary" : "w-2 bg-primary"
                   }`}
                 />
               ))}
@@ -179,12 +187,12 @@ export function GallerySection() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6">
-              <span className="text-white text-xs uppercase tracking-wider block mb-2">{galleryItems[0].category}</span>
-              <p className="text-white font-bold text-xl drop-shadow-lg">{galleryItems[0].alt}</p>
+              <span className="text-primary text-xs uppercase tracking-wider block mb-2">{galleryItems[0].category}</span>
+              <p className="text-primary font-bold text-xl drop-shadow-lg">{galleryItems[0].alt}</p>
             </div>
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
               <div className="w-16 h-16 bg-primary/80 rounded-full flex items-center justify-center backdrop-blur-sm">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
                 </svg>
               </div>
@@ -203,8 +211,8 @@ export function GallerySection() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <div className="absolute bottom-4 left-4 right-4">
-              <span className="text-white text-xs uppercase tracking-wider block mb-1">{galleryItems[1].category}</span>
-              <p className="text-white font-semibold text-sm drop-shadow-lg">{galleryItems[1].alt}</p>
+              <span className="text-primary text-xs uppercase tracking-wider block mb-1">{galleryItems[1].category}</span>
+              <p className="text-primary font-semibold text-sm drop-shadow-lg">{galleryItems[1].alt}</p>
             </div>
           </div>
 
@@ -220,7 +228,7 @@ export function GallerySection() {
             />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
             <div className="absolute bottom-3 left-3">
-              <p className="text-white font-semibold text-xs drop-shadow-lg">{galleryItems[2].alt}</p>
+              <p className="text-primary font-semibold text-xs drop-shadow-lg">{galleryItems[2].alt}</p>
             </div>
           </div>
 
@@ -235,7 +243,7 @@ export function GallerySection() {
             />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
             <div className="absolute bottom-3 left-3">
-              <p className="text-white font-semibold text-xs drop-shadow-lg">{galleryItems[3].alt}</p>
+              <p className="text-primary font-semibold text-xs drop-shadow-lg">{galleryItems[3].alt}</p>
             </div>
           </div>
 
@@ -251,8 +259,8 @@ export function GallerySection() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
             <div className="absolute bottom-4 left-4">
-              <span className="text-white text-xs uppercase tracking-wider block mb-1">{galleryItems[4].category}</span>
-              <p className="text-white font-semibold text-base drop-shadow-lg">{galleryItems[4].alt}</p>
+              <span className="text-primary text-xs uppercase tracking-wider block mb-1">{galleryItems[4].category}</span>
+              <p className="text-primary font-semibold text-base drop-shadow-lg">{galleryItems[4].alt}</p>
             </div>
           </div>
 
@@ -270,7 +278,7 @@ export function GallerySection() {
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
               <div className="absolute bottom-3 left-3">
-                <p className="text-white font-semibold text-xs drop-shadow-lg">{item.alt}</p>
+                <p className="text-primary font-semibold text-xs drop-shadow-lg">{item.alt}</p>
               </div>
             </div>
           ))}
@@ -293,32 +301,32 @@ export function GallerySection() {
             {/* Navigation arrows */}
             <button
               onClick={(e) => { e.stopPropagation(); navigateModalImage('prev') }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-primary/80 hover:bg-primary rounded-full transition-colors backdrop-blur-sm"
+              className="absolute hover:cursor-pointer left-4 top-1/2 -translate-y-1/2 p-3 bg-gradient-to-r from-primary/80 to-secondary hover:bg-primary rounded-full transition-colors backdrop-blur-sm"
               aria-label="Previous"
             >
-              <ChevronLeft size={24} className="text-white" />
+              <ChevronLeft size={24} className="text-primary" />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); navigateModalImage('next') }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-primary/80 hover:bg-primary rounded-full transition-colors backdrop-blur-sm"
+              className="absolute hover:cursor-pointer right-4 top-1/2 -translate-y-1/2 p-3  bg-gradient-to-l from-primary/80 to-secondary hover:bg-primary rounded-full transition-colors backdrop-blur-sm"
               aria-label="Next"
             >
-              <ChevronRight size={24} className="text-white" />
+              <ChevronRight size={24} className="text-primary" />
             </button>
 
             {/* Close button */}
             <button
               onClick={() => setSelectedId(null)}
-              className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+              className="hover:cursor-pointer absolute top-4 right-4 p-2 bg-primary/10 hover:bg-white/20 rounded-full transition-colors"
               aria-label="Close"
             >
-              <X size={24} className="text-white" />
+              <X size={24} className="text-primary" />
             </button>
 
             {/* Image info */}
             <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md rounded-lg p-4">
-              <p className="text-white font-semibold">{galleryItems.find((item) => item.id === selectedId)?.alt}</p>
-              <span className="text-white text-sm uppercase tracking-wider">
+              <p className="text-primary font-semibold">{galleryItems.find((item) => item.id === selectedId)?.alt}</p>
+              <span className="text-primary text-sm uppercase tracking-wider">
                 {galleryItems.find((item) => item.id === selectedId)?.category}
               </span>
             </div>

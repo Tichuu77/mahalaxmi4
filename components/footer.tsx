@@ -4,7 +4,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-primary border-t-4 border-primary/50 relative overflow-hidden pt-16 pb-8">
+    <footer className="bg-background border-t-4 border-primary/10 relative overflow-hidden pt-16 pb-8">
       <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-4 mb-12">
           {/* Brand */}
@@ -13,12 +13,12 @@ export function Footer() {
               <img src="/Malaxmi-Final-Logo.-2png.png" alt="Logo" className=" w-28 h-28" />
               <span
                 style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-                className="font-bold text-white text-lg"
+                className="font-bold text-primary text-lg"
               >
                  Mahalaxmi Developers
               </span>
             </div>
-            <p className="text-white/60 text-sm leading-relaxed">
+            <p className="text-primary/60 text-sm leading-relaxed">
               Delivering premium solutions with excellence and innovation.
             </p>
           </div>
@@ -27,14 +27,14 @@ export function Footer() {
           <div className="mt-8 ml-8">
             <h4
               style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-              className="font-bold text-white mb-4"
+              className="font-bold text-primary mb-4"
             >
               Navigation
             </h4>
             <ul className="space-y-2">
               {[{href : "#about", label : "About"}, {href : "#amenities", label : "Amenities"}, {href : "#projects", label : "Projects"}, { label: "Gallery", href: "#gallery" }, ].map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-white/60 hover:text-white transition-colors text-sm">
+                  <a href={link.href} className="text-primary/60 hover:text-primary transition-colors text-sm">
                     {link.label}
                   </a>
                 </li>
@@ -46,14 +46,14 @@ export function Footer() {
           <div className="mt-8 ml-8">
             <h4
               style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-              className="font-bold text-white mb-4"
+              className="font-bold text-primary mb-4"
             >
               Resources
             </h4>
             <ul className="space-y-2">
               {[ { label: "User Guide", href: "#user-guide" }, { label: "News", href: "#news" }, { href: "#testimonials", label: "Testimonials" }, { href: "#contact", label: "Contact" }].map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-white/60 hover:text-white transition-colors text-sm">
+                  <a href={link.href} className="text-primary/60 hover:text-primary transition-colors text-sm">
                     {link.label}
                   </a>
                 </li>
@@ -65,21 +65,21 @@ export function Footer() {
           <div className="mt-8 ml-8">
             <h4
               style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-              className="font-bold text-white mb-4"
+              className="font-bold text-primary mb-4"
             >
               Contact
             </h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-white/60 text-sm">
-                <Phone size={14} className="text-white" />
+              <li className="flex items-center gap-2 text-primary/60 text-sm">
+                <Phone size={14} className="text-primary" />
                 +1 (555) 123-4567
               </li>
-              <li className="flex items-center gap-2 text-white/60 text-sm">
-                <Mail size={14} className="text-white" />
+              <li className="flex items-center gap-2 text-primary/60 text-sm">
+                <Mail size={14} className="text-primary" />
                 hello@premium.com
               </li>
-              <li className="flex items-start gap-2 text-white/60 text-sm">
-                <MapPin size={14} className="text-white mt-0.5 flex-shrink-0" />
+              <li className="flex items-start gap-2 text-primary/60 text-sm">
+                <MapPin size={14} className="text-primary mt-0.5 flex-shrink-0" />
                 123 Luxury Avenue
               </li>
             </ul>

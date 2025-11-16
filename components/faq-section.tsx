@@ -62,7 +62,7 @@ export function FAQSection() {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 mb-3 px-4 py-2 bg-primary/10 rounded-full border border-primary/30">
-            <HelpCircle className="w-4 h-4 text-primary" />
+            <HelpCircle className="w-4 h-4 text-secondary animate-pulse" />
             <span
               style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
               className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider"
@@ -73,7 +73,7 @@ export function FAQSection() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mt-4 px-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-primary/60 text-sm sm:text-base mt-3 sm:mt-4 max-w-2xl mx-auto px-4">
+          <p className="text-secondary text-sm sm:text-base mt-3 sm:mt-4 max-w-2xl mx-auto px-4">
             Find answers to common questions about our properties and services
           </p>
         </div>
@@ -84,10 +84,10 @@ export function FAQSection() {
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-3 sm:px-5 py-2 rounded-full font-semibold text-xs sm:text-sm whitespace-nowrap transition-all duration-300 flex-shrink-0 ${
+              className={`px-3 hover:cursor-pointer sm:px-5 py-2 rounded-full font-semibold text-xs sm:text-sm whitespace-nowrap transition-all duration-300 flex-shrink-0 ${
                 filter === category
-                  ? "bg-primary text-white shadow-lg scale-105"
-                  : "bg-white/5 text-primary/70 hover:bg-white/10 border border-primary/20"
+                  ? "bg-gradient-to-r from-primary to-secondary text-foreground shadow-lg scale-105"
+                  : "bg-primary/10 text-primary border border-primary hover:border-primary/50 hover:shadow-md"
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -121,8 +121,8 @@ export function FAQSection() {
                   {/* Question Number Badge */}
                   <div className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center font-bold text-sm transition-all duration-300 ${
                     isOpen 
-                      ? "bg-primary text-white scale-110" 
-                      : "bg-primary/10 text-primary group-hover:bg-primary/20"
+                      ? "bg-gradient-to-br from-primary to-secondary text-primary scale-110" 
+                      : "bg-primary text-secondary group-hover:bg-primary/20"
                   }`}>
                     {faq.id}
                   </div>
@@ -136,7 +136,7 @@ export function FAQSection() {
                       {faq.question}
                     </span>
                     {/* Category Badge - Mobile */}
-                    <span className="inline-block mt-1.5 sm:mt-2 px-2 py-0.5 text-[10px] sm:text-xs bg-primary/10 text-primary/70 rounded-full">
+                    <span className=" inline-block mt-1.5 sm:mt-2 px-2 py-0.5 text-[10px] sm:text-xs bg-primary/10 text-primary/70 rounded-full">
                       {faq.category}
                     </span>
                   </div>
@@ -144,7 +144,7 @@ export function FAQSection() {
                   {/* Chevron Icon */}
                   <ChevronDown
                     size={20}
-                    className={`sm:w-6 sm:h-6 text-primary transition-transform duration-300 flex-shrink-0 mt-1 ${
+                    className={`hover:cursor-pointer sm:w-6 sm:h-6 text-primary transition-transform duration-300 flex-shrink-0 mt-1 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
@@ -161,7 +161,7 @@ export function FAQSection() {
                     <div className="flex gap-3 sm:gap-4">
                       {/* Answer Icon */}
                       <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-primary/20 flex items-center justify-center mt-0.5">
-                        <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                        <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 text-primary " />
                       </div>
                       {/* Answer Text */}
                       <p className="text-primary/80 leading-relaxed text-xs sm:text-sm lg:text-base flex-1">
@@ -180,7 +180,7 @@ export function FAQSection() {
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary mb-2 sm:mb-3">
             Still have questions?
           </h3>
-          <p className="text-primary/70 text-xs sm:text-sm mb-4 sm:mb-6">
+          <p className="text-secondary text-xs sm:text-sm mb-4 sm:mb-6">
             Our team is here to help you. Get in touch with us for personalized assistance.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -189,7 +189,7 @@ export function FAQSection() {
                 const element = document.getElementById("contact")
                 if (element) element.scrollIntoView({ behavior: "smooth" })
               }}
-              className="px-6 sm:px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-xl font-semibold text-sm sm:text-base transition-all hover:scale-105 shadow-lg"
+              className="hover:cursor-pointer px-6 sm:px-8 py-3 bg-gradient-to-r from-primary to-secondary hover:bg-primary/90 text-white rounded-xl font-semibold text-sm sm:text-base transition-all hover:scale-105 shadow-lg"
             >
               Contact Us
             </button>

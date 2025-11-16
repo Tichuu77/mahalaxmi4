@@ -69,7 +69,7 @@ export default function ContactSection() {
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+            <div className="w-2 h-2 bg-gradient-to-br from-primary to-secondary rounded-full animate-pulse" />
             <span
               style={{ fontFamily: "var(--font-heading)" }}
               className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider"
@@ -80,7 +80,7 @@ export default function ContactSection() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-3 sm:mb-4">
             Contact Us
           </h2>
-          <p className="text-primary/60 text-base sm:text-lg max-w-2xl mx-auto px-4">
+          <p className="text-secondary text-base sm:text-lg max-w-2xl mx-auto px-4">
             Have a question or ready to get started? We'd love to hear from you.
           </p>
         </div>
@@ -93,7 +93,7 @@ export default function ContactSection() {
               href="tel:+198530003338"
               className="group flex items-start gap-4 p-4 sm:p-5 bg-gradient-to-br from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/15 rounded-2xl border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
             >
-              <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+              <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                 <Phone size={22} className="sm:w-6 sm:h-6" />
               </div>
               <div className="flex-1 min-w-0">
@@ -114,7 +114,7 @@ export default function ContactSection() {
               href="mailto:siddhantbansod44@gmail.com"
               className="group flex items-start gap-4 p-4 sm:p-5 bg-gradient-to-br from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/15 rounded-2xl border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
             >
-              <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+              <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
                 <Mail size={22} className="sm:w-6 sm:h-6" />
               </div>
               <div className="flex-1 min-w-0">
@@ -132,7 +132,7 @@ export default function ContactSection() {
             </a>
 
             <div className="group flex items-start gap-4 p-4 sm:p-5 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl border border-primary/10">
-              <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary flex items-center justify-center text-white">
+              <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary">
                 <MapPin size={22} className="sm:w-6 sm:h-6" />
               </div>
               <div className="flex-1 min-w-0">
@@ -152,11 +152,11 @@ export default function ContactSection() {
             <div className="hidden lg:block pt-4">
               <div className="grid grid-cols-2 gap-3">
                 <div className="flex items-center gap-2 p-3 bg-primary/5 rounded-xl">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0" />
                   <span className="text-xs text-primary/70">Quick Response</span>
                 </div>
                 <div className="flex items-center gap-2 p-3 bg-primary/5 rounded-xl">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0" />
                   <span className="text-xs text-primary/70">Free Consultation</span>
                 </div>
               </div>
@@ -262,7 +262,7 @@ export default function ContactSection() {
                     type="button"
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="w-full px-6 py-3.5 sm:py-4 bg-primary hover:bg-primary/90 text-white rounded-xl font-semibold text-sm sm:text-base flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="w-full px-6 py-3.5 sm:py-4 bg-gradient-to-br from-primary to-secondary hover:cursor-pointer hover:bg-primary/90 text-primary rounded-xl font-semibold text-sm sm:text-base flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
                     {isSubmitting ? (
                       <>

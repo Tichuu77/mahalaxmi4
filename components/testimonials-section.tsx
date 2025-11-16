@@ -60,18 +60,27 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="py-20 lg:py-32 bg-gradient-to-b from-white/20 to-primary/50 relative overflow-hidden"
+      className="py-20 lg:py-32 bg-gradient-to-b from-background/20 to-primary/50 relative overflow-hidden"
     >
       <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span
-            style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-            className="text-primary font-semibold text-sm uppercase tracking-wider"
-          >
-            Testimonials
-          </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-primary mt-4 text-balance">Loved by Clients</h2>
+          <div className="text-center">
+            <div className="max inline-flex items-center gap-2 mb-3 px-4 py-2 bg-primary/10 rounded-full border border-primary/30">
+            <div className="w-2 h-2 bg-gradient-to-br from-primary to-secondary rounded-full animate-pulse" />
+            <span
+              style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
+              className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider"
+            >
+             Testimonials
+            </span>
+          </div>
         </div>
+
+        <h2
+          style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
+          className="my-4 text-center text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-6"
+        >
+          What Our Clients Say
+        </h2>
 
         <div className="relative max-w-3xl mx-auto">
           {/* Main Testimonial */}
@@ -83,16 +92,16 @@ export function TestimonialsSection() {
                   index === current ? "opacity-100 scale-100" : "absolute opacity-0 scale-95 pointer-events-none"
                 }`}
               >
-                <div className="bg-gradient-to-br from-white/10 to-white/5 border border-primary/20 rounded-lg p-8 lg:p-12">
+                <div className="bg-gradient-to-br from-primary/70 to-secondary/70 border border-primary/20 rounded-lg p-8 lg:p-12">
                   {/* Stars */}
                   <div className="flex gap-1 mb-6">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} size={18} className="fill-amber-400 text-amber" />
+                      <Star key={i} size={18} className="fill-amber-400 text-gradient animate-pulse fast delay-[0.2s] fill-gradient-to-br from-amber-400 from-primary to-secondary" />
                     ))}
                   </div>
 
                   {/* Quote */}
-                  <p className="text-lg lg:text-xl text-white/90 mb-8 leading-relaxed italic">"{testimonial.content}"</p>
+                  <p className="text-lg lg:text-xl text-primary/90 mb-8 leading-relaxed italic">"{testimonial.content}"</p>
 
                   {/* Author */}
                   <div className="flex items-center gap-4">
@@ -104,11 +113,11 @@ export function TestimonialsSection() {
                     <div>
                       <p
                         style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-                        className="font-bold text-white"
+                        className="font-bold text-primary mb-1"
                       >
                         {testimonial.name}
                       </p>
-                      <p className="text-primary text-sm">{testimonial.location}</p>
+                      <p className="text-primary/80 text-sm">{testimonial.location}</p>
                     </div>
                   </div>
                 </div>
@@ -120,7 +129,7 @@ export function TestimonialsSection() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={goToPrevious}
-              className="p-2 rounded-full hover:cursor-pointer border border-primary/50 hover:border-white text-primary hover:textwhite transition-colors"
+              className="p-2 bg-gradient-to-br from-primary to-secondary rounded-full hover:cursor-pointer border border-primary/50 hover:border-white text-primary hover:textwhite transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={20} />
@@ -136,7 +145,7 @@ export function TestimonialsSection() {
                     setAutoplay(false)
                   }}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === current ? "bg-primary w-6" : "bg-primary/40 hover:bg-primary/60"
+                    index === current ? "bg-gradient-to-br from-primary to-secondary w-6" : "bg-primary/40 hover:bg-gradient-to-br from-primary to-secondary   hover:cursor-pointer"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -145,7 +154,7 @@ export function TestimonialsSection() {
 
             <button
               onClick={goToNext}
-              className="p-2 hover:cursor-pointer rounded-full border border-primary/50 hover:border-white text-primary hover:textwhite transition-colors"
+              className="p-2 bg-gradient-to-br from-primary to-secondary hover:cursor-pointer rounded-full border border-primary/50 hover:border-primary text-primary hover:text-primary transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight size={20} />

@@ -69,7 +69,7 @@ export function UserGuideSection() {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-2 mb-3 px-4 py-2 bg-primary/10 rounded-full border border-primary/30">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+            <div className="w-2 h-2 bg-gradient-to-br from-primary to-secondary rounded-full animate-pulse" />
             <span
               style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
               className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider"
@@ -80,7 +80,7 @@ export function UserGuideSection() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mt-4 px-4">
             How to Get Started
           </h2>
-          <p className="text-primary/60 text-sm sm:text-base lg:text-lg mt-3 sm:mt-4 max-w-2xl mx-auto px-4">
+          <p className="text-secondary text-sm sm:text-base lg:text-lg mt-3 sm:mt-4 max-w-2xl mx-auto px-4">
             Follow our simple step-by-step guide to maximize your experience
           </p>
         </div>
@@ -111,14 +111,14 @@ export function UserGuideSection() {
                   className="w-full p-4 sm:p-6 flex items-start sm:items-center gap-3 sm:gap-6 hover:bg-white/5 transition-all text-left"
                 >
                   {/* Icon - Mobile friendly */}
-                  <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-white shadow-lg">
+                  <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-primary to-secondary/80 flex items-center justify-center text-white shadow-lg">
                     <Icon size={24} className="sm:w-8 sm:h-8" />
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start gap-2 mb-1 sm:mb-2">
-                      <span className="text-2xl sm:text-3xl font-bold text-primary/30">
+                      <span className="text-2xl sm:text-3xl font-bold text-secondary flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-primary to-secondary/80 flex items-center justify-center shadow-lg shadow-secondary/30">
                         {guide.number}
                       </span>
                       <h3 className="text-base sm:text-lg lg:text-xl font-bold text-primary flex-1">
@@ -133,7 +133,7 @@ export function UserGuideSection() {
                   {/* Chevron */}
                   <ChevronDown
                     size={20}
-                    className={`sm:w-6 sm:h-6 text-primary transition-transform duration-300 flex-shrink-0 ${
+                    className={`sm:w-6 sm:h-6 hover:cursor-pointer hover:text-secondary text-primary transition-transform duration-300 flex-shrink-0 ${
                       isExpanded ? "rotate-180" : ""
                     }`}
                   />
@@ -149,7 +149,7 @@ export function UserGuideSection() {
                       <ul className="space-y-2.5 sm:space-y-3">
                         {guide.details.map((detail, detailIndex) => (
                           <li key={detailIndex} className="flex items-start gap-2.5 sm:gap-3">
-                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full mt-1.5 sm:mt-2 flex-shrink-0" />
+                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-br from-primary to-secondary rounded-full mt-1.5 sm:mt-2 flex-shrink-0" />
                             <span className="text-xs sm:text-sm text-primary/80 leading-relaxed">
                               {detail}
                             </span>

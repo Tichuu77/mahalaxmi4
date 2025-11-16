@@ -1,29 +1,26 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight, MapPin, Award, TrendingUp } from "lucide-react"
+import { ArrowRight, MapPin, Award, TrendingUp, Phone } from "lucide-react"
 
-export function HeroSection() {
+export default function HeroSection() {
   const videoRef = useRef<HTMLDivElement>(null)
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     setIsLoaded(true)
 
-    // Load Cloudinary Video Player script
     const script = document.createElement('script')
     script.src = 'https://unpkg.com/cloudinary-video-player@1.10.6/dist/cld-video-player.min.js'
     script.async = true
     document.body.appendChild(script)
 
-    // Load Cloudinary Video Player CSS
     const link = document.createElement('link')
     link.href = 'https://unpkg.com/cloudinary-video-player@1.10.6/dist/cld-video-player.min.css'
     link.rel = 'stylesheet'
     document.head.appendChild(link)
 
     script.onload = () => {
-      // Initialize Cloudinary player
       if (window.cloudinary && videoRef.current) {
         window.cloudinary.videoPlayer('cloudinary-player', {
           cloud_name: 'dxujnm2sl',
@@ -42,25 +39,19 @@ export function HeroSection() {
     }
 
     return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script)
-      }
-      if (document.head.contains(link)) {
-        document.head.removeChild(link)
-      }
+      if (document.body.contains(script)) document.body.removeChild(script)
+      if (document.head.contains(link)) document.head.removeChild(link)
     }
   }, [])
 
   const handleScrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+    if (element) element.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background - Cloudinary */}
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <div ref={videoRef} className="w-full h-full">
           <video
@@ -73,166 +64,114 @@ export function HeroSection() {
               position: 'absolute',
               top: 0,
               left: 0,
-              filter: 'brightness(0.35)'
+              filter: 'brightness(0.65)'
             }}
           />
         </div>
-        {/* Enhanced gradient overlay */}
-        <div className="absolute inset-0   pointer-events-none" />
-      </div>
-
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none z-[1]">
-        <div className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-secondary/30 rounded-full blur-3xl animate-pulse"></div>
-        <div
-          className="absolute bottom-1/4 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-primary/30 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "1s" }}
-        ></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
-        <div className="text-center max-w-5xl mx-auto">
-          {/* Main Heading */}
-          <div
-            className={`transition-all duration-1000 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-              Build Your Dream Home With{" "}
-              <span className="relative inline-block">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary animate-gradient-x">
-                  Mahalaxmi Developers
-                </span>
-                <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-50 blur-sm"></div>
-              </span>
-            </h1>
-          </div>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+        
+        {/* Badge */}
+        <div className={`inline-flex items-center lg:mt-4 gap-2 px-4 py-2 bg-primary rounded-full shadow-lg mb-6 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+          <Award className="w-4 h-4 text-foreground" />
+          <span className="text-xs font-bold text-foreground uppercase tracking-wide">
+            RERA • NMRDA Approved
+          </span>
+        </div>
 
-          {/* Subtitle */}
-          <div
-            className={`transition-all duration-1000 delay-100 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white/95 mb-6 sm:mb-8 leading-relaxed">
-              Residential & Commercial Plots in Heart Of Nagpur
-            </h2>
-          </div>
+        {/* Main Heading */}
+        <div className={`mb-6 transition-all duration-700 delay-100 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight mb-3">
+            Build Your Dream Home
+          </h1>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary mb-3">
+            With Mahalaxmi Developers
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+        </div>
 
-          {/* Certification Badge */}
-          <div
-            className={`transition-all duration-1000 delay-200 inline-flex items-center gap-2 sm:gap-3 py-2.5 sm:py-3 px-4 sm:px-8 bg-gradient-to-r from-primary to-primary/90 rounded-full shadow-2xl mb-6 sm:mb-8 border border-white/20 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <Award className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-            <h3 className="text-xs sm:text-sm md:text-base text-white font-semibold tracking-wide">
-              NMRDA SANCTION | RERA APPROVED PROJECTS
-            </h3>
-            <Award className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-          </div>
+        {/* Subtitle */}
+        <p className={`text-base sm:text-xl text-primary/90 mb-6 max-w-2xl transition-all duration-700 delay-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+          Residential & Commercial Plots in Heart of Nagpur
+        </p>
 
-          {/* Location Info */}
-          <div
-            className={`transition-all duration-1000 delay-300 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <div className="inline-flex items-start gap-2 sm:gap-3 bg-black/30 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 mb-6 sm:mb-8 max-w-4xl">
-              <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-0.5" />
-              <p className="text-sm sm:text-base md:text-lg text-white/90 text-left leading-relaxed">
-                <span className="font-semibold text-white">Prime Locations:</span> Besa, Beltarodi, Shankarpur, Wardha Road, Jamtha, Katol Road, Umred Road, Koradi Road & Samruddhi Circle Nagpur
-              </p>
-            </div>
-          </div>
-
-          {/* CTA Buttons */}
-          <div
-            className={`transition-all duration-1000 delay-400 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8 px-4 sm:px-0 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <button 
-              onClick={() => handleScrollToSection("contact")}
-              className="group px-6 sm:px-10 py-3.5 sm:py-4 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white rounded-xl font-bold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-2xl hover:shadow-primary/50 hover:scale-105 border border-white/20"
-            >
-              Contact Us Now
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button 
-              onClick={() => handleScrollToSection("projects")}
-              className="px-6 sm:px-10 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-xl font-bold text-sm sm:text-base transition-all duration-300 border-2 border-white/30 hover:scale-105 hover:border-primary/70 shadow-lg"
-            >
-              Explore Projects
-            </button>
-          </div>
-
-          {/* Investment Highlight */}
-          <div
-            className={`transition-all duration-1000 delay-500 inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-secondary to-secondary/90 py-3 sm:py-4 px-4 sm:px-8 rounded-full shadow-2xl border border-white/20 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-white animate-pulse" />
-            <h3 className="text-white text-xs sm:text-sm md:text-base font-bold">
-              Best Investment Opportunity @ ₹22 Lakh Only on Samruddhi Circle
-            </h3>
-          </div>
-
-          {/* Stats Row - Mobile Optimized */}
-          <div
-            className={`transition-all duration-1000 delay-600 grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 mt-8 sm:mt-12 max-w-3xl mx-auto ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1">15+</div>
-              <div className="text-xs sm:text-sm text-white/80">Projects</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1">500+</div>
-              <div className="text-xs sm:text-sm text-white/80">Happy Clients</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1">100%</div>
-              <div className="text-xs sm:text-sm text-white/80">RERA Approved</div>
+        {/* Special Offer Box */}
+        <div className={`bg-gradient-to-r from-secondary to-secondary/90 rounded-xl p-4 sm:p-5 mb-6 max-w-xl shadow-xl border border-white/20 transition-all duration-700 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+          <div className="flex items-start gap-3">
+            <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-0.5 animate-pulse" />
+            <div>
+              <p className="text-primary font-bold text-sm sm:text-base mb-1">Best Investment Opportunity</p>
+              <p className="text-primary/90 text-xs sm:text-sm">₹22 Lakh Only at Samruddhi Circle</p>
             </div>
           </div>
         </div>
+
+        {/* CTA Buttons */}
+        <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 transition-all duration-700 delay-400 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+          <button 
+            onClick={() => handleScrollToSection("contact")}
+            className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-foreground rounded-lg font-bold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-xl hover:scale-105"
+          >
+            <Phone size={18} />
+            Contact Us Now
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+          <button 
+            onClick={() => handleScrollToSection("projects")}
+            className="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-md hover:bg-white/20 text-primary rounded-lg font-bold text-sm sm:text-base transition-all duration-300 border-2 border-white/30 hover:border-primary/50 shadow-lg hover:scale-105"
+          >
+            View Projects
+          </button>
+        </div>
+
+        {/* Info Cards Grid */}
+        <div className={`grid sm:grid-cols-2 gap-4 max-w-4xl transition-all duration-700 delay-500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+          
+          {/* Locations Card */}
+          <div className="bg-black/30 backdrop-blur-sm border border-white/20 rounded-xl p-4 shadow-xl">
+            <div className="flex items-center gap-3 mb-3">
+              <MapPin className="w-5 h-5 text-tcol flex-shrink-0" />
+              <h3 className="text-base sm:text-lg font-bold text-primary">Prime Locations</h3>
+            </div>
+            <p className="text-xs sm:text-sm text-primary/90 leading-relaxed">
+              Besa, Beltarodi, Shankarpur, Wardha Road, Jamtha, Katol Road, Umred Road, Koradi Road & Samruddhi Circle
+            </p>
+          </div>
+
+          {/* Stats Card */}
+          <div className="bg-black/30 backdrop-blur-sm border border-white/20 rounded-xl p-4 shadow-xl">
+            <div className="grid grid-cols-3 gap-3 text-center">
+              <div>
+                <div className="text-xl sm:text-2xl font-bold text-tcol mb-1">15+</div>
+                <div className="text-xs text-primary/90">Projects</div>
+              </div>
+              <div>
+                <div className="text-xl sm:text-2xl font-bold text-tcol mb-1">500+</div>
+                <div className="text-xs text-primary/90">Clients</div>
+              </div>
+              <div>
+                <div className="text-xl sm:text-2xl font-bold text-tcol mb-1">100%</div>
+                <div className="text-xs text-primary/90">RERA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       {/* Scroll Indicator */}
-      <div 
-        className={`absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce transition-all duration-1000 delay-700 ${
-          isLoaded ? "opacity-100" : "opacity-0"
-        }`}
-      >
+      <div className={`absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce transition-all duration-700 delay-600 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
         <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-2 bg-black/20 backdrop-blur-sm">
           <div className="w-1.5 h-2 bg-primary rounded-full animate-pulse" />
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes gradient-x {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 3s ease infinite;
-        }
-      `}</style>
     </section>
   )
 }
 
-// TypeScript declaration for Cloudinary
 declare global {
   interface Window {
     cloudinary: {

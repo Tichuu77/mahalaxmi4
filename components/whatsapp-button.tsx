@@ -14,11 +14,11 @@ export default function WhatsappButton() {
         className="relative group"
         aria-label="Chat on WhatsApp"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary rounded-full animate-ping opacity-75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary rounded-full animate-ping opacity-75" />
 
-        <div className="relative w-16 h-16 bg-gradient-to-br from-primary to-primary rounded-full flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110">
+        <div className="relative w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-full flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110">
           <svg
-            className="w-8 h-8 text-white"
+            className="w-8 h-8 text-foreground"
             fill="currentColor"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"

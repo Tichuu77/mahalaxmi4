@@ -5,14 +5,14 @@
 
 :root {
   /* Premium brown, white, black theme */
-  --background:  #ffffff;
-  --foreground: #ffffff;
-  --tcolor : #0d0d0d;
+  --background: #30534A;;
+  --foreground: #30534A;
+  --text :#30534A;
   --card: #1a1a1a;
   --card-foreground: #ffffff;
   --popover: #1a1a1a;
   --popover-foreground: #ffffff;
-  --primary: #30534A;
+  --primary: #ffffff;
   --primary-foreground: #ffffff;
   --secondary: #C9862b;
   --secondary-foreground: #0d0d0d;

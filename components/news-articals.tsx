@@ -65,16 +65,21 @@ export default function NewsArticles() {
       <div className="relative max-w-[90%] mx-auto z-10">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-16">
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-primary/10 rounded-full">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider">
+            <div className="text-center">
+            <div className="max inline-flex items-center gap-2 mb-3 px-4 py-2 bg-primary/10 rounded-full border border-primary/30">
+            <div className="w-2 h-2 bg-gradient-to-br from-primary to-secondary rounded-full animate-pulse" />
+            <span
+              style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
+              className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider"
+            >
               Latest Updates
             </span>
           </div>
+        </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
             News & Articles
           </h2>
-          <p className="text-primary/60 text-base md:text-lg max-w-3xl mx-auto">
+          <p className="text-secondary text-base md:text-lg max-w-3xl mx-auto">
             Stay updated with the latest news, project launches, and insights from Mahalaxmi Developers.
           </p>
         </div>
@@ -99,7 +104,7 @@ export default function NewsArticles() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   <div className="absolute top-4 left-4">
-                    <span className="inline-block px-3 py-1 bg-gradient-to-br from-primary to-primary text-white text-xs font-semibold rounded-full shadow-md">
+                    <span className="inline-block px-3 py-1 bg-gradient-to-br from-primary to-secondary text-foreground text-xs font-semibold rounded-full shadow-md">
                       {article.category}
                     </span>
                   </div>
@@ -129,7 +134,7 @@ export default function NewsArticles() {
                   {/* Read More Button */}
                   <button
                     onClick={(e) => toggleExpand(article.id, e)}
-                    className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary transition-colors hover:cursor-pointer"
+                    className="inline-flex items-center gap-2 text-secondary font-semibold hover:text-primary transition-colors hover:cursor-pointer"
                   >
                     {article.id === expandedId ? (
                       <>

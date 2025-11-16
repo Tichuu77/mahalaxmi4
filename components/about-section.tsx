@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Award, Users, Building2, CheckCircle2, TrendingUp, Shield } from "lucide-react"
+import { Award, Users, Building2, CheckCircle2, TrendingUp, Shield, Home, Target } from "lucide-react"
 
-export function AboutSection() {
+export default function AboutSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [counters, setCounters] = useState({ projects: 0, clients: 0, years: 0, sqft: 0 })
 
@@ -59,145 +59,145 @@ export function AboutSection() {
     }, increment)
   }
 
-  const features = [
-    { icon: Award, text: "Premium Materials", color: "from-primary to-primary" },
-    { icon: Users, text: "Expert Craftsmanship", color: "from-primary to-secondary" },
-    { icon: Shield, text: "Quality Assurance", color: "from-primary/80 to-primary" },
-    { icon: CheckCircle2, text: "Timely Delivery", color: "from-primary to-secondary" },
-    { icon: TrendingUp, text: "Value Appreciation", color: "from-primary/80 to-primary" },
-    { icon: Building2, text: "Modern Architecture", color: "from-primary to-secondary" }
+  const stats = [
+    { value: counters.projects, suffix: "+", label: "Projects", icon: Building2 },
+    { value: counters.clients, suffix: "+", label: "Happy Families", icon: Users },
+    { value: counters.years, suffix: "+", label: "Years", icon: Award },
+    { value: counters.sqft, suffix: "K+", label: "Sq.Ft", icon: TrendingUp }
   ]
 
-  const stats = [
-    { value: counters.projects, suffix: "+", label: "Completed Projects", icon: Building2 },
-    { value: counters.clients, suffix: "+", label: "Happy Families", icon: Users },
-    { value: counters.years, suffix: "+", label: "Years Experience", icon: Award },
-    { value: counters.sqft, suffix: "K+", label: "Sq.Ft Delivered", icon: TrendingUp }
+  const features = [
+    { icon: Award, title: "Premium Quality", desc: "Top-grade materials" },
+    { icon: Shield, title: "Fully Legal", desc: "100% documentation" },
+    { icon: Target, title: "Prime Locations", desc: "Strategic spots" },
+    { icon: Home, title: "Modern Design", desc: "Contemporary style" }
   ]
 
   return (
-    <section id="about" className="py-12 md:py-20 lg:py-32 bg-background relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
+    <section id="about" className="py-12 sm:py-16 md:py-20 bg-background relative overflow-hidden">
+      
+      {/* Subtle background decoration */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 right-20 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-secondary rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className={`text-center mb-8 md:mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          <span className="text-primary font-semibold text-xs md:text-sm uppercase tracking-wider mb-2 block">About Us</span>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 md:mb-4 px-4">
-            Where Luxury Meets{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary/80 to-primary">
-              Craftsmanship
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        
+        {/* Header */}
+        <div className={`text-center mb-8 sm:mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+             <div className="text-center">
+            <div className="max inline-flex items-center gap-2 mb-3 px-4 py-2 bg-primary/10 rounded-full border border-primary/30">
+            <div className="w-2 h-2 bg-gradient-to-br from-primary to-secondary rounded-full animate-pulse" />
+            <span
+              style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
+              className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider"
+            >
+              About Us
             </span>
+          </div>
+        </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-3">
+            Building Dreams Into Reality
           </h2>
-          <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+          <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center mb-12 md:mb-20">
-          {/* Left: Image with overlay effects */}
-          <div className={`relative h-[280px] md:h-[400px] lg:h-[500px] rounded-xl md:rounded-2xl overflow-hidden group transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
+        {/* Main Content */}
+        <div className={`mb-8 sm:mb-12 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+          
+          {/* Image with Stats Overlay */}
+          <div className="relative rounded-xl overflow-hidden mb-6 sm:mb-8">
             <img 
               src="/aboutUs.webp" 
-              alt="Mahalaxmi Developers Premium Projects" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              alt="Mahalaxmi Developers" 
+              className="w-full h-48 sm:h-64 md:h-80 object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
             
-            {/* Floating badge */}
-            <div className="absolute top-3 right-3 md:top-6 md:right-6 bg-gradient-to-r from-primary to-secondary text-white px-3 py-2 md:px-6 md:py-3 rounded-full shadow-2xl backdrop-blur-sm border border-primary/20 animate-pulse">
-              <div className="flex items-center gap-1.5 md:gap-2">
-                <Award size={16} className="md:w-5 md:h-5" />
-                <span className="font-semibold text-xs md:text-base">RERA Approved</span>
+            {/* Stats overlay on image */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+              <div className="grid grid-cols-4 gap-2 sm:gap-4">
+                {stats.map((stat, idx) => {
+                  const Icon = stat.icon
+                  return (
+                    <div key={idx} className="text-center">
+                      <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-tcol mx-auto mb-1" />
+                      <div className="text-lg sm:text-2xl md:text-3xl font-bold text-white">
+                        {stat.value}{stat.suffix}
+                      </div>
+                      <div className="text-[10px] sm:text-xs text-white/90">{stat.label}</div>
+                    </div>
+                  )
+                })}
               </div>
+            </div>
+
+            {/* RERA Badge */}
+            <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-primary rounded-full px-3 py-1.5 sm:px-4 sm:py-2 flex items-center gap-1.5 shadow-lg">
+              <Award className="w-3 h-3 sm:w-4 sm:h-4 text-foreground" />
+              <span className="text-[10px] sm:text-xs font-bold text-foreground">RERA</span>
             </div>
           </div>
 
-          {/* Right: Content */}
-          <div className={`transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}>
-            <p className="text-black text-sm md:text-lg leading-relaxed mb-4 md:mb-6">
-              With over two decades of excellence in real estate development, <span className="text-primary font-semibold">Mahalaxmi Developers</span> is committed to creating architectural landmarks that blend luxury, sustainability, and innovation in the heart of Nagpur.
+          {/* Description */}
+          <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+            <p className="text-sm sm:text-base text-primary leading-relaxed">
+              With over <span className="text-secondary font-semibold">20 years of excellence</span> in real estate, Mahalaxmi Developers has established itself as a trusted name in Nagpur. We specialize in creating premium residential and commercial properties that combine quality, location, and value.
             </p>
-            <p className="text-black text-sm md:text-lg leading-relaxed mb-6 md:mb-8">
-              Our portfolio showcases projects that reflect our dedication to quality craftsmanship, timely delivery, and customer satisfaction. We believe in building not just structures, but <span className="text-primary">thriving communities</span> where families create lasting memories.
+            <p className="text-sm sm:text-base text-primary leading-relaxed">
+              Our commitment to transparency, legal compliance, and customer satisfaction has helped over 1000 families find their dream properties across Nagpur's prime locations.
             </p>
+          </div>
 
-            {/* Features Grid - Mobile optimized */}
-            <div className="grid grid-cols-3 md:grid-cols-2 gap-2 md:gap-4 mb-6 md:mb-8">
-              {features.map((feature, idx) => {
-                const Icon = feature.icon
-                return (
-                  <div
-                    key={idx}
-                    className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 p-2.5 md:p-4 bg-white/5 rounded-lg border border-white/10 hover:border-primary/50 transition-all duration-300 hover:bg-white/10 hover:scale-105"
-                    style={{ animationDelay: `${idx * 100}ms` }}
-                  >
-                    <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-r ${feature.color} flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform`}>
-                      <Icon size={14} className="md:w-[18px] md:h-[18px] text-white" />
-                    </div>
-                    <span className="text-black text-[10px] md:text-sm font-medium text-center md:text-left leading-tight">{feature.text}</span>
+          {/* Features Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+            {features.map((feature, idx) => {
+              const Icon = feature.icon
+              return (
+                <div 
+                  key={idx} 
+                  className="bg-white border border-gray-200 rounded-lg p-3 sm:p-4 hover:border-primary/50 hover:shadow-md transition-all duration-300"
+                >
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mb-2 sm:mb-3 mx-auto">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                )
-              })}
-            </div>
+                  <h4 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 text-center">{feature.title}</h4>
+                  <p className="text-[10px] sm:text-xs text-gray-600 text-center">{feature.desc}</p>
+                </div>
+              )
+            })}
+          </div>
 
-            {/* CTA Button */}
-            <a href="#projects" className="group inline-flex px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white rounded-lg font-semibold transition-all duration-300 items-center gap-2 shadow-lg hover:shadow-primary/50 hover:shadow-2xl hover:scale-105 text-sm md:text-base">
-              Explore Our Projects
-              <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {/* CTA Button */}
+          <div className="text-center">
+            <a 
+              href="#projects" 
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              View Our Projects
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
           </div>
         </div>
 
-        {/* Stats Counter Section - Mobile optimized */}
-        <div className={`grid grid-cols-2 gap-3 md:gap-6 transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          {stats.map((stat, idx) => {
-            const Icon = stat.icon
-            return (
-              <div
-                key={idx}
-                className="relative p-3 md:p-6 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl md:rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 hover:scale-105 group overflow-hidden"
-              >
-                {/* Background glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-2 md:mb-3">
-                    <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center group-hover:rotate-12 transition-transform">
-                      <Icon size={16} className="md:w-6 md:h-6 text-white" />
-                    </div>
-                  </div>
-                  <div className="text-2xl md:text-4xl font-bold text-black mb-0.5 md:mb-1">
-                    {stat.value}
-                    <span className="text-primary">{stat.suffix}</span>
-                  </div>
-                  <p className="text-black text-[10px] md:text-sm font-medium">{stat.label}</p>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-
-        {/* Trust Badges - Mobile optimized */}
-        <div className={`mt-8 md:mt-16 flex flex-wrap justify-center gap-4 md:gap-8 items-center transition-all duration-1000 delay-600 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-          <div className="flex items-center gap-1.5 md:gap-2 text-primary">
-            <Shield className="text-primary" size={18} />
-            <span className="font-medium text-xs md:text-base">NMRDA Sanctioned</span>
+        {/* Trust Badges */}
+        <div className={`flex flex-wrap justify-center items-center gap-4 sm:gap-6 pt-6 border-t border-gray-200 transition-all duration-700 delay-200 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+          <div className="flex items-center gap-2 text-primary">
+            <Shield className="w-4 h-4" />
+            <span className="text-xs sm:text-sm font-medium">NMRDA Sanctioned</span>
           </div>
-          <div className="w-px h-6 md:h-8 bg-white/20"></div>
-          <div className="flex items-center gap-1.5 md:gap-2 text-primary">
-            <CheckCircle2 className="text-primary" size={18} />
-            <span className="font-medium text-xs md:text-base">RERA Approved</span>
+          <div className="w-px h-6 bg-gray-300"></div>
+          <div className="flex items-center gap-2 text-primary">
+            <CheckCircle2 className="w-4 h-4" />
+            <span className="text-xs sm:text-sm font-medium">RERA Approved</span>
           </div>
-          <div className="w-px h-6 md:h-8 bg-white/20"></div>
-          <div className="flex items-center gap-1.5 md:gap-2 text-primary">
-            <Award className="text-primary" size={18} />
-            <span className="font-medium text-xs md:text-base">ISO Certified</span>
+          <div className="w-px h-6 bg-gray-300"></div>
+          <div className="flex items-center gap-2 text-primary">
+            <Award className="w-4 h-4" />
+            <span className="text-xs sm:text-sm font-medium">ISO Certified</span>
           </div>
         </div>
       </div>

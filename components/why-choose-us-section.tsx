@@ -38,21 +38,20 @@ const reasons = [
 export function WhyChooseUsSection() {
   return (
     <section id="why-choose-us" className="py-12 sm:py-20 lg:py-32 bg-background relative">
-      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <span
-            style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-            className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider"
-          >
-            Why Choose Us
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mt-3 sm:mt-4 text-balance px-2">
-            The Difference We Make
-          </h2>
-          <p className="text-black text-base sm:text-lg mt-3 sm:mt-4 max-w-2xl mx-auto px-4">
-            Discover what sets us apart from the competition and why leading brands choose us
-          </p>
+      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 ">
+        <div className="text-center">
+            <div className="max inline-flex items-center gap-2 mb-3 px-4 py-2 bg-primary/10 rounded-full border border-primary/30">
+            <div className="w-2 h-2 bg-gradient-to-br from-primary to-secondary rounded-full animate-pulse" />
+            <span
+              style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
+              className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider"
+            >
+              Why Choose Us
+            </span>
+          </div>
         </div>
+        
+        
 
         {/* Mobile: 2 columns, Tablet: 2 columns, Desktop: 3 columns */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
@@ -61,13 +60,13 @@ export function WhyChooseUsSection() {
             return (
               <div
                 key={index}
-                className="group p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-lg border border-primary/20 bg-gradient-to-br from-white/5 to-transparent hover:from-white/10 hover:to-white/5 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/20 active:scale-95"
+                className="group p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-lg border border-primary/20 bg-gradient-to-br from-white/5 to-transparent hover:from-primary/10 hover:to-primary/5 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/20 active:scale-95"
               >
-                <div className="mb-3 sm:mb-4 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-white group-hover:shadow-lg group-hover:shadow-primary/50 transition-all">
+                <div className="mb-3 sm:mb-4 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-primary to-secondary/80 flex items-center justify-center text-primary group-hover:shadow-lg group-hover:shadow-primary/50 transition-all">
                   <Icon size={20} className="sm:w-6 sm:h-6" />
                 </div>
                 <h3 className="text-sm sm:text-lg lg:text-xl font-bold text-primary mb-1.5 sm:mb-2">{reason.title}</h3>
-                <p className="text-black/60 text-xs sm:text-sm lg:text-base leading-relaxed">{reason.description}</p>
+                <p className="text-secondary text-xs sm:text-sm lg:text-base leading-relaxed">{reason.description}</p>
               </div>
             )
           })}
@@ -83,7 +82,7 @@ export function WhyChooseUsSection() {
                   (benefit) => (
                     <li key={benefit} className="flex items-start gap-3">
                       <Check size={20} className="text-primary hover:cursor-pointer flex-shrink-0 mt-0.5" />
-                      <span className="text-black/80 text-sm sm:text-base">{benefit}</span>
+                      <span className="text-secondary text-sm sm:text-base">{benefit}</span>
                     </li>
                   ),
                 )}
@@ -96,7 +95,7 @@ export function WhyChooseUsSection() {
                   (benefit) => (
                     <li key={benefit} className="flex items-start gap-3">
                       <Check size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-black/80 text-sm sm:text-base">{benefit}</span>
+                      <span className="text-secondary text-sm sm:text-base">{benefit}</span>
                     </li>
                   ),
                 )}

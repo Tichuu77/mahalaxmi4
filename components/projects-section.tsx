@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, MapPin, Phone } from "lucide-react"
+import { ArrowRight, MapPin, Phone, CheckCircle } from "lucide-react"
 
 type Project = {
   id: number
@@ -106,47 +106,47 @@ This Project Fully NMRDA & RL Residential Plotted Project With upto 90% Bank Fin
       status: "completed"
     },
   ],
- upcoming: [
-      {
-        id: 15,
-        title: "Mahalaxmi Nagar - 48",
-        image: "/plotDef.avif",
-        description : ``,
-        location: ``,
-        status: "upcoming"
-      },
-      {
-        id: 16,
-        title: "Mahalaxmi Nagar - 49",
-        image: "/plotDef.avif",
-        description : ``,
-        location: ``,
-        status: "upcoming"
-      },
-      {
-        id: 17,
-        title: "Mahalaxmi Nagar - 50",
-        image: "/plotDef.avif",
-        description : ``,
-        location: ``,
-        status: "upcoming"
-      },
-    ]
+  upcoming: [
+    {
+      id: 15,
+      title: "Mahalaxmi Nagar - 48",
+      image: "/plotDef.avif",
+      description: ``,
+      location: ``,
+      status: "upcoming"
+    },
+    {
+      id: 16,
+      title: "Mahalaxmi Nagar - 49",
+      image: "/plotDef.avif",
+      description: ``,
+      location: ``,
+      status: "upcoming"
+    },
+    {
+      id: 17,
+      title: "Mahalaxmi Nagar - 50",
+      image: "/plotDef.avif",
+      description: ``,
+      location: ``,
+      status: "upcoming"
+    },
+  ]
 }
 
 function ProjectCard({ project }: { project: Project }) {
-  const [isHovered, setIsHovered] = useState(false)
+  const [showFullDescription, setShowFullDescription] = useState(false)
 
   const statusColors = {
-    completed: "bg-green-500/80 text-white border-green-500/40",
-    ongoing: "bg-blue-500/80 text-white border-blue-500/40",
-    upcoming: "bg-primary/80 text-white border-primary/40",
+    completed: "bg-green-500 text-primary",
+    ongoing: "bg-blue-500 text-primary",
+    upcoming: "bg-secondary text-primary",
   }
 
   const statusLabels = {
-    completed: "✓ Completed",
-    ongoing: "⚡ Ongoing",
-    upcoming: "🚀 Upcoming",
+    completed: "Completed",
+    ongoing: "Ongoing",
+    upcoming: "Upcoming",
   }
 
   const handleWhatsApp = () => {
@@ -156,40 +156,25 @@ function ProjectCard({ project }: { project: Project }) {
   }
 
   return (
-    <div
-      className="group bg-gradient-to-br from-white/5 to-transparent rounded-xl overflow-hidden border border-amber-900/20 hover:border-primary/40 hover:shadow-lg hover:shadow-amber-900/50 transition-all duration-300 hover:scale-105 relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{ 
-        animation: 'fadeInUp 0.6s ease-out forwards',
-        opacity: 0
-      }}
-    >
-      {/* Shimmer effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 pointer-events-none"></div>
-
-      {/* Image Container */}
-      <div className="relative h-48 md:h-64 overflow-hidden bg-black/50">
+    <div className="bg-gradient-to-b from-secondary/20 to-primary/50 rounded-xl overflow-hidden border border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all duration-300 group">
+      {/* Image */}
+      <div className="relative h-48 sm:h-56 overflow-hidden">
         <img
           src={project.image || "/placeholder.svg"}
           alt={project.title}
-          className={`w-full h-full object-cover transition-transform duration-500 ${
-            isHovered ? "scale-110" : "scale-100"
-          }`}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
-        
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         
         {/* Status Badge */}
         <div className="absolute top-3 right-3">
-          <span className={`px-3 py-1.5 rounded-full text-xs font-semibold border backdrop-blur-sm ${statusColors[project.status as keyof typeof statusColors]}`}>
+          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${statusColors[project.status as keyof typeof statusColors]}`}>
             {statusLabels[project.status as keyof typeof statusLabels]}
           </span>
         </div>
 
-        {/* Title Overlay on Mobile */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 md:hidden">
+        {/* Title on image for mobile */}
+        <div className="absolute bottom-3 left-3 right-3">
           <h3 className="text-primary font-bold text-lg drop-shadow-lg">
             {project.title}
           </h3>
@@ -197,58 +182,63 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {/* Content */}
-      <div className="p-4 md:p-6 relative z-10">
-        {/* Title - Desktop only */}
-        <h3 className="hidden md:block text-xl font-bold text-primary mb-2 group-hover:text-primary transition-colors">
-          {project.title}
-        </h3>
-
+      <div className="p-4 sm:p-5">
         {/* Location */}
-        <div className="flex items-center gap-2 text-primary/60 mb-3">
-          <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-          <p className="text-sm font-medium">{project.location}</p>
-        </div>
+        {project.location && (
+          <div className="flex items-start gap-2 mb-3">
+            <MapPin className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-primary">{project.location}</p>
+          </div>
+        )}
 
-        {/* Description */}
-        <p className="text-primary/60 text-xs md:text-sm mb-4 leading-relaxed line-clamp-2 md:line-clamp-3">
-          {project.description}
-        </p>
+       {/* Description */}
+        {project.description && (
+          <div className="mb-4">
+            <p className={`text-xs sm:text-sm text-primary/70 ${!showFullDescription ? 'line-clamp-3' : ''}`}>
+              {project.description}
+            </p>
+            {project.description.length > 150 && (
+              <button
+                onClick={() => setShowFullDescription(!showFullDescription)}
+                className="text-primary hover:cursor-pointer text-xs font-semibold mt-2 hover:underline flex items-center gap-1"
+              >
+                {showFullDescription ? 'Show Less' : 'Read More'}
+                <ArrowRight className={`w-3 h-3 transition-transform ${showFullDescription ? 'rotate-90' : ''}`} />
+              </button>
+            )}
+          </div>
+        )}
 
-        {/* Action Button */}
-        <div className="flex gap-2">
-          <button
-            onClick={handleWhatsApp}
-            className="flex-1 bg-gradient-to-r from-primary to-primary text-white py-2.5 md:py-3 px-4 rounded-lg font-semibold hover:from-primary hover:to-primary hover:shadow-lg hover:shadow-amber-900/50 transition-all flex items-center justify-center gap-2 group/btn"
-          >
-            <Phone className="w-4 h-4" />
-            <span className="text-sm md:text-base">Contact Us</span>
-            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-          </button>
-        </div>
-
-        {/* Quick Info Tags */}
-        <div className="flex flex-wrap gap-2 mt-3">
-          <span className="px-2 py-1 bg-primary/20 text-primary text-xs rounded-full border border-primary/30">
-            NMRDA Approved
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          <span className="px-2 py-1 bg-primary/60 text-foreground text-xs rounded-full font-medium">
+            NMRDA
           </span>
-          <span className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full border border-green-500/30">
+          <span className="px-2 py-1 bg-foreground/60 text-primary text-xs rounded-full font-medium">
             Bank Finance
           </span>
         </div>
-      </div>
 
-      {/* Corner glow */}
-      <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-primary/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+        {/* Action Button */}
+        <button
+          onClick={handleWhatsApp}
+          className="w-full bg-gradient-to-r from-primary to-secondary text-white py-2.5 sm:py-3 px-4 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 group/btn"
+        >
+          <Phone className="w-4 h-4" />
+          <span className="text-sm sm:text-base">Contact Now</span>
+          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+        </button>
+      </div>
     </div>
   )
 }
 
-export function ProjectsSection() {
+export  function ProjectsSection() {
   const [activeTab, setActiveTab] = useState<"all" | "completed" | "ongoing" | "upcoming">("all")
 
   const allProjects = [
-    ...projects.completed,
     ...projects.ongoing,
+    ...projects.completed,
     ...projects.upcoming,
   ]
 
@@ -258,52 +248,54 @@ export function ProjectsSection() {
       : allProjects.filter((project) => project.status === activeTab)
 
   return (
-    <section id="projects" className="py-20 lg:py-32 bg-white relative overflow-hidden">
-      {/* Animated Background */}
-      {/* <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-primary rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-primary rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-primary rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-      </div> */}
+    <section id="projects" className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-background to-primary-50 relative overflow-hidden">
+      
+      {/* Subtle background */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-secondary rounded-full blur-3xl"></div>
+      </div>
 
-      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-12">
-          <div>
-            <div className="inline-flex items-center gap-2 mb-3 px-4 py-2 bg-primary/20 rounded-full border border-primary/40 animate-bounce" style={{animationDuration: '3s'}}>
-              <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
-              <span
-                style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
-                className="text-primary font-semibold text-sm uppercase tracking-wider"
-              >
-                Portfolio
-              </span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-primary mt-4 text-balance">Our Projects</h2>
-            <p className="text-primary/60 text-lg mt-4 max-w-2xl">
-              Explore our portfolio of completed, ongoing, and upcoming developments
-            </p>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-8 sm:mb-10">
+           <div className="text-center">
+            <div className="max inline-flex items-center gap-2 mb-3 px-4 py-2 bg-primary/10 rounded-full border border-primary/30">
+            <div className="w-2 h-2 bg-gradient-to-br from-primary to-secondary rounded-full animate-pulse" />
+            <span
+              style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
+              className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider"
+            >
+             Our Projects
+            </span>
           </div>
+        </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-2">
+            Featured Projects
+          </h2>
+          <p className="text-sm sm:text-base text-secondary max-w-2xl mx-auto">
+            Explore our completed, ongoing, and upcoming developments across Nagpur
+          </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-8">
+        <div className="flex justify-center gap-2 mb-8 flex-wrap">
           {[
-            { label: "All Projects", value: "all", icon: "🏢" },
-            { label: "Completed", value: "completed", icon: "✓" },
-            { label: "Ongoing", value: "ongoing", icon: "⚡" },
-            { label: "Upcoming", value: "upcoming", icon: "🚀" },
-          ].map((tab) => (
+            { label: "All", value: "all" },
+            { label: "Ongoing", value: "ongoing" },
+            { label: "Completed", value: "completed" },
+            { label: "Upcoming", value: "upcoming" }
+          ].map(tab => (
             <button
               key={tab.value}
               onClick={() => setActiveTab(tab.value as any)}
-              className={`px-5 md:px-6 py-2.5 rounded-full font-semibold transition-all text-sm md:text-base ${
+              className={`px-4 hover:cursor-pointer sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
                 activeTab === tab.value
-                  ? "bg-gradient-to-r from-primary to-primary text-white shadow-lg shadow-primary/50"
-                  : "bg-white/5 text-primary/70 hover:bg-white/10 border border-primary-900/20 hover:border-primary/40"
+                 ? "bg-gradient-to-r from-primary to-secondary text-foreground shadow-lg scale-105"
+                  : "bg-primary/10 text-primary border border-primary hover:border-primary/50 hover:shadow-md"
               }`}
             >
-              <span className="mr-1">{tab.icon}</span>
               {tab.label}
             </button>
           ))}
@@ -311,45 +303,34 @@ export function ProjectsSection() {
 
         {/* Projects Grid */}
         {filteredProjects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {filteredProjects.map((project, index) => (
-              <div
-                key={project.id}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <ProjectCard project={project} />
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            {filteredProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
         ) : (
           <div className="text-center py-16">
-            <div className="text-6xl mb-4">🏗️</div>
-            <p className="text-primary/60 text-lg">
-              No projects available under this category.
-            </p>
+            <div className="text-5xl mb-4">🏗️</div>
+            <p className="text-gray-500">No projects available in this category</p>
           </div>
         )}
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-12">
+          <p className="text-sm text-secondary mb-4">
+            Interested in our projects? Get in touch with us today!
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+          >
+            <Phone className="w-4 h-4" />
+            Contact Us
+          </a>
+        </div>
       </div>
 
       <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-
         .line-clamp-3 {
           display: -webkit-box;
           -webkit-line-clamp: 3;
