@@ -151,7 +151,7 @@ function ProjectCard({ project }: { project: Project }) {
 
   const handleWhatsApp = () => {
     const message = `Hi, I'm interested in the project "${project.title}" located at ${project.location}. Could you share more details?`
-    const url = `https://wa.me/918766887828?text=${encodeURIComponent(message)}`
+    const url = `https://wa.me/919112086429?text=${encodeURIComponent(message)}`
     window.open(url, "_blank")
   }
 
@@ -222,7 +222,7 @@ function ProjectCard({ project }: { project: Project }) {
         {/* Action Button */}
         <button
           onClick={handleWhatsApp}
-          className="w-full bg-gradient-to-r from-primary to-secondary text-white py-2.5 sm:py-3 px-4 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 group/btn"
+          className="w-full hover:cursor-pointer bg-gradient-to-r from-primary to-secondary text-white py-2.5 sm:py-3 px-4 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 group/btn"
         >
           <Phone className="w-4 h-4" />
           <span className="text-sm sm:text-base">Contact Now</span>

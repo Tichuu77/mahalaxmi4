@@ -72,15 +72,17 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-primary/60 text-sm">
                 <Phone size={14} className="text-primary" />
-                +1 (555) 123-4567
+               <a href="tel:+919112086429">+91 9112086429</a>
               </li>
               <li className="flex items-center gap-2 text-primary/60 text-sm">
                 <Mail size={14} className="text-primary" />
-                hello@premium.com
+                <a href="mailto:takotepankaj6@gmail.com">takotepankaj6@gmail.com</a>
               </li>
               <li className="flex items-start gap-2 text-primary/60 text-sm">
                 <MapPin size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                123 Luxury Avenue
+                <div className="mt-0.5">
+                  <span className="block">Nagpur Maharashtra India</span>
+                </div>
               </li>
             </ul>
           </div>
