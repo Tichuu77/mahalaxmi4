@@ -15,7 +15,7 @@ export function Footer() {
                 style={{ fontFamily: "var(--font-heading, Poppins, sans-serif)" }}
                 className="font-bold text-primary text-lg"
               >
-                 Mahalaxmi Developers
+                 Mahalaxmi  Infra
               </span>
             </div>
             <p className="text-primary/60 text-sm leading-relaxed">

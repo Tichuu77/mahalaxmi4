@@ -143,7 +143,7 @@ export default function AboutSection() {
           {/* Description */}
           <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
             <p className="text-sm sm:text-base text-primary leading-relaxed">
-              With over <span className="text-secondary font-semibold">20 years of excellence</span> in real estate, Mahalaxmi Developers has established itself as a trusted name in Nagpur. We specialize in creating premium residential and commercial properties that combine quality, location, and value.
+              With over <span className="text-secondary font-semibold">20 years of excellence</span> in real estate, Mahalaxmi Infra has established itself as a trusted name in Nagpur. We specialize in creating premium residential and commercial properties that combine quality, location, and value.
             </p>
             <p className="text-sm sm:text-base text-primary leading-relaxed">
               Our commitment to transparency, legal compliance, and customer satisfaction has helped over 1000 families find their dream properties across Nagpur's prime locations.

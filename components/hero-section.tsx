@@ -88,7 +88,7 @@ export default function HeroSection() {
             Build Your Dream Home
           </h1>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary mb-3">
-            With Mahalaxmi Developers
+            With Mahalaxmi  Infra
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
         </div>
